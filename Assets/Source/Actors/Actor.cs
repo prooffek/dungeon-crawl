@@ -1,5 +1,7 @@
-﻿using DungeonCrawl.Core;
+﻿using System.Numerics;
+using DungeonCrawl.Core;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 namespace DungeonCrawl.Actors
 {
