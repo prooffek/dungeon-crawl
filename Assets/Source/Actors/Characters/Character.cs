@@ -4,13 +4,32 @@ namespace DungeonCrawl.Actors.Characters
 {
     public abstract class Character : Actor
     {
-        public int Health { get; private set; }
+        /// 
+        /// <summary>
+        /// Player's stats properties section
+        /// </summary>
+        ///
+        public string characterName { get; private set; }
+
+        public int characterLevel { get; private set; }
+
+        public int AttackPoints { get; private set; }
+
+        public int HealthPoints { get; private set; }
+
+        public int ManaPoints { get; private set; }
+
+        public int DeffencePoints { get; private set; }
+
+        public int StaminaPoints { get; private set; }
+
+        public int ExperiencePoints { get; private set; }
 
         public void ApplyDamage(int damage)
         {
-            Health -= damage;
+            HealthPoints -= damage;
 
-            if (Health <= 0)
+            if (HealthPoints <= 0)
             {
                 // Die
                 OnDeath();

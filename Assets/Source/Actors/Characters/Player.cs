@@ -29,6 +29,8 @@ namespace DungeonCrawl.Actors.Characters
                 // Move right
                 TryMove(Direction.Right);
             }
+
+            //this.StaminaPoints -= 1;
         }
 
         public override bool OnCollision(Actor anotherActor)
@@ -43,5 +45,7 @@ namespace DungeonCrawl.Actors.Characters
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
+
+     
     }
 }

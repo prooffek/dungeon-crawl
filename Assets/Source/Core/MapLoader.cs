@@ -40,10 +40,17 @@ namespace DungeonCrawl.Core
 
             // Set default camera size and position
 
-           
-            
-            CameraController.Singleton.Size = 10;
+            CameraController.Singleton.Size = 8;
             CameraController.Singleton.Position = (width / 2, -height / 2);
+
+
+
+            //may be useful to add initial stats right here
+            ///
+            //GameObject player = GameObject.Find("Player");
+
+
+
         }
 
         private static void SpawnActor(char c, (int x, int y) position)

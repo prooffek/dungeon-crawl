@@ -40,6 +40,9 @@ namespace Assets.Source.Core
 
             _textComponents = GetComponentsInChildren<TextMeshProUGUI>();
             Display _display = new Display();
+
+            ///
+            //dodane roboczo, do usunięcia gdy implementacja klasy Character zostanie skończona
             string playerName = "Yezekhiel";
             int hp = 100;
             int mp = 100;
@@ -48,6 +51,8 @@ namespace Assets.Source.Core
             int sta = 100;
             int exp = 1;
             int level = 1;
+            //
+            ///
             string text = _display.PrintStats( playerName,  hp,  mp,  att,  def,  sta,  exp,  level);
             SetText(text, TextPosition.BottomLeft);
         }
