@@ -17,8 +17,10 @@ namespace DungeonCrawl.Actors
             }
         }
 
+
         private (int x, int y) _position;
         private SpriteRenderer _spriteRenderer;
+
 
         private void Awake()
         {
@@ -26,6 +28,7 @@ namespace DungeonCrawl.Actors
 
             SetSprite(DefaultSpriteId);
         }
+
 
         private void Update()
         {
@@ -68,7 +71,7 @@ namespace DungeonCrawl.Actors
         public virtual bool OnCollision(Actor anotherActor)
         {
             // All actors are passable by default
-            return true;
+            return false;
         }
 
         /// <summary>

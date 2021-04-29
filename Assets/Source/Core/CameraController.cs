@@ -49,5 +49,14 @@ namespace DungeonCrawl.Core
 
             _camera = GetComponent<Camera>();
         }
+
+        private void Update()
+        {
+            GameObject player = GameObject.Find("Player");
+            
+
+            this.Position = ((int)player.gameObject.gameObject.transform.position.x, (int)player.gameObject.gameObject.transform.position.y);
+
+        }
     }
 }
