@@ -62,17 +62,18 @@
     <Compile Include="Assets\Source\Core\UserInterface.cs" />
     <Compile Include="Assets\Source\Actors\Actor.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Tree2.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Tree1.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
+    <Compile Include="Assets\Source\Actors\Static\GateForest2.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Skeleton.cs" />
     <Compile Include="Assets\Source\Core\MapLoader.cs" />
     <Compile Include="Assets\Source\Utilities.cs" />
+    <Compile Include="Assets\Source\Actors\Static\GateForest.cs" />
+    <Compile Include="Assets\Source\Actors\Static\River.cs" />
     <Compile Include="Assets\Source\Core\GameManager.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Tree1.cs" />
-    <Compile Include="Assets\Source\Actors\Static\Tree2.cs" />
-    <Compile Include="Assets\Source\Actors\Static\River.cs" />
-    <Compile Include="Assets\Source\Actors\Static\GateForest2.cs" />
-    <Compile Include="Assets\Source\Actors\Static\GateForest.cs" />
+    <Compile Include="Assets\Source\Core\Display.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Resources\map_0.txt" />

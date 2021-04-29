@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Source.Core;
+using UnityEngine;
 
 namespace DungeonCrawl.Core
 {
@@ -11,5 +12,6 @@ namespace DungeonCrawl.Core
         {
             MapLoader.LoadMap(0);
         }
+    
     }
 }

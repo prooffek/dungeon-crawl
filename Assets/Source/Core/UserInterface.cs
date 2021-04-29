@@ -35,10 +35,21 @@ namespace Assets.Source.Core
                 Destroy(this);
                 return;
             }
-            
+
             Singleton = this;
 
             _textComponents = GetComponentsInChildren<TextMeshProUGUI>();
+            Display _display = new Display();
+            string playerName = "Yezekhiel";
+            int hp = 100;
+            int mp = 100;
+            int att = 1;
+            int def = 1;
+            int sta = 100;
+            int exp = 1;
+            int level = 1;
+            string text = _display.PrintStats( playerName,  hp,  mp,  att,  def,  sta,  exp,  level);
+            SetText(text, TextPosition.BottomLeft);
         }
 
         /// <summary>
@@ -46,9 +57,11 @@ namespace Assets.Source.Core
         /// </summary>
         /// <param name="text"></param>
         /// <param name="textPosition"></param>
+
         public void SetText(string text, TextPosition textPosition)
         {
-            _textComponents[(int) textPosition].text = text;
+
+            _textComponents[(int)textPosition].text = text;
         }
     }
 }
