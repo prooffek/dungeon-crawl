@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using static DungeonCrawl.Actors.Characters.Character;
 
 namespace Assets.Source.Core
 {
@@ -53,8 +54,10 @@ namespace Assets.Source.Core
             int level = 1;
             //
             ///
+
+
             string text = _display.PrintStats( hp,  mp,  att,  def,  sta,  exp,  level);
-            SetText(playerName.ToUpper(), TextPosition.TopCenter);
+            SetText(playerName, TextPosition.TopCenter);
             SetText(text, TextPosition.BottomLeft);
         }
 
@@ -69,6 +72,7 @@ namespace Assets.Source.Core
 
             _textComponents[(int)textPosition].text = text;
             _textComponents[(int)textPosition].fontSize = (float)50;
+            _textComponents[(int)textPosition].characterSpacing = (float)8;
         }
     }
 }
