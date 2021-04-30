@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DungeonCrawl.Actors.Characters;
+using UnityEngine;
 
 namespace DungeonCrawl.Core
 {
@@ -37,6 +38,11 @@ namespace DungeonCrawl.Core
         private (int x, int y) _position;
         private Camera _camera;
 
+        private void Start()
+        {
+            CenterCameraOnPlayer();
+        }
+
         private void Awake()
         {
             if (Singleton != null)
@@ -52,11 +58,11 @@ namespace DungeonCrawl.Core
 
         private void Update()
         {
-            GameObject player = GameObject.Find("Player");
-            
+        }
 
-            this.Position = ((int)player.gameObject.gameObject.transform.position.x, (int)player.gameObject.gameObject.transform.position.y);
-
+        public void CenterCameraOnPlayer()
+        {
+            Position = ActorManager.Singleton.Player.Position;
         }
     }
 }

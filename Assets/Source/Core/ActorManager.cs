@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -18,6 +19,7 @@ namespace DungeonCrawl.Core
 
         private SpriteAtlas _spriteAtlas;
         private HashSet<Actor> _allActors;
+        public Player Player { get; private set; }
 
         private void Awake()
         {
@@ -116,6 +118,8 @@ namespace DungeonCrawl.Core
             component.Position = (x, y);
 
             _allActors.Add(component);
+
+            if (component is Player player) Player = player;
 
             return component;
         }
