@@ -8,11 +8,11 @@ namespace Assets.Source.Core
 {
     public class Display
     {
-        public string PrintStats(string playerName, int hp, int mp, int att, int def, int sta, int exp, int level)
+        public string PrintStats(int hp, int mp, int att, int def, int sta, int exp, int level)
         {
            string statsTable = $@"
 
-    {playerName}
+    
     HP : {hp}
     MP : {mp}
     ATT: {att}

@@ -53,7 +53,8 @@ namespace Assets.Source.Core
             int level = 1;
             //
             ///
-            string text = _display.PrintStats( playerName,  hp,  mp,  att,  def,  sta,  exp,  level);
+            string text = _display.PrintStats( hp,  mp,  att,  def,  sta,  exp,  level);
+            SetText(playerName.ToUpper(), TextPosition.TopCenter);
             SetText(text, TextPosition.BottomLeft);
         }
 
@@ -67,6 +68,7 @@ namespace Assets.Source.Core
         {
 
             _textComponents[(int)textPosition].text = text;
+            _textComponents[(int)textPosition].fontSize = (float)50;
         }
     }
 }
