@@ -59,6 +59,7 @@ namespace DungeonCrawl.Actors
                 {
                     // Allowed to move
                     Position = targetPosition;
+                    CameraController.Singleton.CenterCameraOnPlayer();
                 }
             }
         }
