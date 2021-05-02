@@ -12,6 +12,7 @@ namespace DungeonCrawl
 
     public static class Utilities
     {
+        private static Random random = new Random();
         public static (int x, int y) ToVector(this Direction dir)
         {
             switch (dir)
@@ -27,6 +28,11 @@ namespace DungeonCrawl
                 default:
                     throw new ArgumentOutOfRangeException(nameof(dir), dir, null);
             }
+        }
+        
+        internal static bool GetRandomBoolean()
+        {
+            return Convert.ToBoolean(random.Next(2));
         }
     }
 }

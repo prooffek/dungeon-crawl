@@ -5,6 +5,9 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Assets.Source.Core;
+using DungeonCrawl.Actors.Items.Weapons;
+using Source.Actors.Items.Swords;
+using static Source.Actors.Items.PlaceItemsOnMap;
 
 namespace DungeonCrawl.Core
 {
@@ -37,6 +40,8 @@ namespace DungeonCrawl.Core
                     SpawnActor(character, (x, -y));
                 }
             }
+            
+            SpawnItems(1);
 
             // Set default camera size and position
 
@@ -91,6 +96,14 @@ namespace DungeonCrawl.Core
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        private static void SpawnItems(int level = 1)
+        {
+            PlaceFoodOnMap();
+            ActorManager.Singleton.Spawn<SoldiersSword>(2, -2);
+            PlaceRequiredItems(level);
+            ItemsPlacesIfPlayerIsLucky(level);
         }
     }
 }

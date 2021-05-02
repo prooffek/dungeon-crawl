@@ -13,15 +13,16 @@ namespace DungeonCrawl.Actors.Characters
 
         public int characterLevel { get; private set; }
 
-        public int AttackPoints { get; private set; }
+        public int AttackPoints { get; set; }
 
-        public int HealthPoints { get; private set; }
+        public int HealthPoints { get; set; }
+        public int Inteligence { get; set; }
 
-        public int ManaPoints { get; private set; }
+        public int ManaPoints { get; set; }
 
-        public int DeffencePoints { get; private set; }
+        public int DeffencePoints { get; set; }
 
-        public int StaminaPoints { get; private set; }
+        public int StaminaPoints { get; set; }
 
         public int ExperiencePoints { get; private set; }
 

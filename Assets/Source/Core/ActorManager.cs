@@ -2,6 +2,7 @@
 using System.Linq;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Actors.Items;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -19,6 +20,7 @@ namespace DungeonCrawl.Core
 
         private SpriteAtlas _spriteAtlas;
         private HashSet<Actor> _allActors;
+        private Dictionary<int, Item> _itemsDict;
         public Player Player { get; private set; }
 
         private void Awake()
@@ -54,6 +56,23 @@ namespace DungeonCrawl.Core
         public T GetActorAt<T>((int x, int y) position) where T : Actor
         {
             return _allActors.FirstOrDefault(actor => actor.Detectable && actor is T && actor.Position == position) as T;
+        }
+        
+        /// <summary>
+        ///     returns a list with positions of empty fields on the board
+        /// </summary>
+        /// <returns></returns>
+        public List<(int, int)> GetEmptyBoardFields()
+        {
+            List<(int, int)> listOfFields = new List<(int, int)>();
+
+            foreach (Actor actor in _allActors)
+            {
+                if (GetActorAt(actor.Position) is null)
+                    listOfFields.Add(actor.Position);
+            }
+
+            return listOfFields;
         }
 
         /// <summary>
