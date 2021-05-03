@@ -14,7 +14,7 @@ namespace Source.Actors.Items.Books
         
         public override void ActionOnUse(Player player)
         {
-            player.Inteligence += InteligencePoints;
+            player.IntelligencePoints += InteligencePoints;
             player.HealthPoints += 5;
             DecreaseItemDurability();
             DestroyIffJunk(player);

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Items
 {
@@ -13,6 +14,7 @@ namespace DungeonCrawl.Actors.Items
         
         public override bool OnCollision(Actor anotherActor)
         {
+            if (anotherActor is Player player) this.ActionOnUse(player);
             return true;
         }
 

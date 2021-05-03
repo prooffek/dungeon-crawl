@@ -15,7 +15,7 @@ namespace DungeonCrawl.Actors.Items.Armours
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            player.DeffencePoints += this.DefencePoints;
+            player.DefencePoints += this.DefencePoints;
         }
         
         public override void DestroyIffJunk(Player player)

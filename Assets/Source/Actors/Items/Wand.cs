@@ -15,7 +15,7 @@ namespace DungeonCrawl.Actors.Items.Weapons
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            player.Inteligence += this.Inteligence;
+            player.IntelligencePoints += this.Inteligence;
             DecreaseItemDurability();
             DestroyIffJunk(player);
         }
@@ -26,7 +26,7 @@ namespace DungeonCrawl.Actors.Items.Weapons
             {
                 ActorManager am = new ActorManager();
                 am.DestroyActor(this);
-                player.Inteligence -= this.Inteligence;
+                player.IntelligencePoints -= this.Inteligence;
             }
         }
     }
