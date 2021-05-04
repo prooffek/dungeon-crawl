@@ -46,6 +46,14 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
 
-     
+        public override void HandleItem(Actor actor)
+        {
+            PickUpItem(actor);
+        }
+
+        public void PickUpItem(Actor actor)
+        {
+            /// stuff
+        }
     }
 }

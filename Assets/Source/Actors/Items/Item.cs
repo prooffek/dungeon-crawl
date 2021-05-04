@@ -13,6 +13,8 @@ namespace DungeonCrawl.Actors.Items
         
         public override bool OnCollision(Actor anotherActor)
         {
+            anotherActor.HandleItem(anotherActor);
+
             return true;
         }
 
