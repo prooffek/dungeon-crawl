@@ -53,8 +53,8 @@ namespace DungeonCrawl.Actors.Characters
 
         public override void HandleItem(ItemActor itemActor)
         {
-            PickUpItem(itemActor.Item);
             itemActor.HandlePickUp(this);
+            PickUpItem(itemActor.Item);
             ActorManager.Singleton.DestroyActor(itemActor);
         }
 
