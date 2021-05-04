@@ -17,17 +17,17 @@ namespace DungeonCrawl.Actors.Items.Weapons
         {
             player.Inteligence += this.Inteligence;
             DecreaseItemDurability();
-            DestroyIffJunk(player);
+            //DestroyIffJunk(player);
         }
 
-        public override void DestroyIffJunk(Player player)
-        {
-            if (CurrentDurability <= 0)
-            {
-                ActorManager am = new ActorManager();
-                am.DestroyActor(this);
-                player.Inteligence -= this.Inteligence;
-            }
-        }
+        //public override void DestroyIffJunk(Player player)
+        //{
+        //    if (CurrentDurability <= 0)
+        //    {
+        //        ActorManager am = new ActorManager();
+        //        am.DestroyActor(this);
+        //        player.Inteligence -= this.Inteligence;
+        //    }
+        //}
     }
 }

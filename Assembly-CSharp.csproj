@@ -105,6 +105,8 @@
     <Compile Include="Assets\Source\Actors\Items\Armours\KnightArmour.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Actors\Items\Item.cs" />
+    <Compile Include="Assets\Source\Actors\Items\ItemActor.cs" />
+    <Compile Include="Assets\Source\Actors\IActor.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

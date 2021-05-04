@@ -1,11 +1,13 @@
 ﻿using System.Numerics;
+using Assets.Source.Actors.Items;
+using DungeonCrawl.Actors.Items;
 using DungeonCrawl.Core;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 namespace DungeonCrawl.Actors
 {
-    public abstract class Actor : MonoBehaviour
+    public abstract class Actor : MonoBehaviour, IActor
     {
         public (int x, int y) Position
         {
@@ -29,6 +31,10 @@ namespace DungeonCrawl.Actors
             SetSprite(DefaultSpriteId);
         }
 
+        internal void HandleItem(object itemActor)
+        {
+            throw new System.NotImplementedException();
+        }
 
         private void Update()
         {
@@ -104,7 +110,7 @@ namespace DungeonCrawl.Actors
         /// </summary>
         public abstract string DefaultName { get; }
 
-        public virtual void HandleItem(Actor actor)
+        public virtual void HandleItem(Item actor)
         {
             // does nothing
         }

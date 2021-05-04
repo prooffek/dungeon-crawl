@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace DungeonCrawl.Actors.Items.Foods
 {
     public class Apple : Food

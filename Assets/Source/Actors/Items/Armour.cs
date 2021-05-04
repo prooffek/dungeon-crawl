@@ -18,14 +18,14 @@ namespace DungeonCrawl.Actors.Items.Armours
             player.DeffencePoints += this.DefencePoints;
         }
         
-        public override void DestroyIffJunk(Player player)
-        {
-            if (CurrentDurability <= 0)
-            {
-                ActorManager am = new ActorManager();
-                am.DestroyActor(this);
-                player.AttackPoints -= this.DefencePoints;
-            }
-        }
+        //public override void DestroyIffJunk(Player player)
+        //{
+        //    if (CurrentDurability <= 0)
+        //    {
+        //        ActorManager am = new ActorManager();
+        //        am.DestroyActor(this);
+        //        player.AttackPoints -= this.DefencePoints;
+        //    }
+        //}
     }
 }

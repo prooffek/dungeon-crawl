@@ -17,7 +17,7 @@ namespace Source.Actors.Items.Books
             player.Inteligence += InteligencePoints;
             player.HealthPoints += 5;
             DecreaseItemDurability();
-            DestroyIffJunk(player);
+            //DestroyIffJunk(player);
         }
     }
 }

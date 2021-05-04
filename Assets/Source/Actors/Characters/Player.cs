@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using Assets.Source.Actors.Items;
+using DungeonCrawl.Actors.Items;
+using DungeonCrawl.Core;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
+        public List<Item> Inventory { get; set; } = new List<Item>();
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -46,14 +51,15 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
 
-        public override void HandleItem(Actor actor)
+        public override void HandleItem(Item item)
         {
-            PickUpItem(actor);
+            PickUpItem(item);
         }
 
-        public void PickUpItem(Actor actor)
+        public void PickUpItem(Item item)
         {
-            /// stuff
+            Inventory.Add(item);
+            ActorManager.Singleton.DestroyActor(item.Actor);
         }
     }
 }

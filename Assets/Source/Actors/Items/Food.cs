@@ -18,7 +18,7 @@ namespace DungeonCrawl.Actors.Items.Foods
         {
             player.StaminaPoints += this.NutritiousPoints;
             CurrentDurability = 0;
-            DestroyIffJunk(player);
+            //DestroyIffJunk(player);
         }
     }
 }

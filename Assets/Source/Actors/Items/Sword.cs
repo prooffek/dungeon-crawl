@@ -17,18 +17,18 @@ namespace DungeonCrawl.Actors.Items.Weapons
         {
             player.AttackPoints += DamagePoints;
             DecreaseItemDurability();
-            DestroyIffJunk(player);
+            //DestroyIffJunk(player);
         }
 
         
-        public override void DestroyIffJunk(Player player)
-        {
-            if (CurrentDurability <= 0)
-            {
-                ActorManager am = new ActorManager();
-                am.DestroyActor(this);
-                player.AttackPoints -= DamagePoints;
-            }
-        }
+        //public override void DestroyIffJunk(Player player)
+        //{
+        //    if (CurrentDurability <= 0)
+        //    {
+        //        ActorManager am = new ActorManager();
+        //        am.DestroyActor(this);
+        //        player.AttackPoints -= DamagePoints;
+        //    }
+        //}
     }
 }

@@ -17,7 +17,7 @@ namespace DungeonCrawl.Actors.Items.Books
         {
             player.Inteligence += InteligencePoints;
             DecreaseItemDurability();
-            DestroyIffJunk(player);
+            //DestroyIffJunk(player);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace DungeonCrawl.Actors.Items.Varia
         {
             player.HealthPoints += this.HealthPoints;
             DecreaseItemDurability();
-            DestroyIffJunk(player);
+            //DestroyIffJunk(player);
         }
     }
 }

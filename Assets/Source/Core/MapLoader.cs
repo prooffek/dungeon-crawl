@@ -101,9 +101,9 @@ namespace DungeonCrawl.Core
         private static void SpawnItems(int level = 1)
         {
             PlaceFoodOnMap();
-            ActorManager.Singleton.Spawn<SoldiersSword>(2, -2);
-            PlaceRequiredItems(level);
-            ItemsPlacesIfPlayerIsLucky(level);
+            //ActorManager.Singleton.Spawn<SoldiersSword>(2, -2);
+            //PlaceRequiredItems(level);
+            //ItemsPlacesIfPlayerIsLucky(level);
         }
     }
 }
