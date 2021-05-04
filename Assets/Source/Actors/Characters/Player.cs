@@ -51,15 +51,16 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
 
-        public override void HandleItem(Item item)
+        public override void HandleItem(ItemActor itemActor)
         {
-            PickUpItem(item);
+            PickUpItem(itemActor.Item);
+            itemActor.HandlePickUp(this);
+            ActorManager.Singleton.DestroyActor(itemActor);
         }
 
         public void PickUpItem(Item item)
         {
             Inventory.Add(item);
-            ActorManager.Singleton.DestroyActor(item.Actor);
         }
     }
 }

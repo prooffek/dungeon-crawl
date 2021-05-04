@@ -110,9 +110,8 @@ namespace DungeonCrawl.Actors
         /// </summary>
         public abstract string DefaultName { get; }
 
-        public virtual void HandleItem(Item actor)
+        public virtual void HandleItem(ItemActor itemActor)
         {
-            // does nothing
         }
     }
 }

@@ -9,7 +9,6 @@ namespace DungeonCrawl.Actors.Items
 {
     public abstract class Item : IActor
     {
-        public Actor Actor { get; set; }
         public abstract int MaxDurability { get; }
         public abstract int CurrentDurability { get; set; }
 
@@ -28,6 +27,10 @@ namespace DungeonCrawl.Actors.Items
             return true;
         }
 
+        // Allows to execute additional code before this is picked up
+        public virtual void HandlePickUp(Actor anotherActor)
+        {
+        }
         
         public virtual void DecreaseItemDurability()
         {

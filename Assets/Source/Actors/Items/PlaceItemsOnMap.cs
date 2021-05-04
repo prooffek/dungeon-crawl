@@ -22,13 +22,9 @@ namespace Source.Actors.Items
             //place apples
             foreach(Item item in _items)
             {
-
                 ItemActor actor = ActorManager.Singleton.Spawn<ItemActor>(GetRandomPosition());
                 actor.Item = item;
-                item.Actor = actor;
                 actor.SetSprite(actor.Item.DefaultSpriteId);
-
-
             }
         }
             
