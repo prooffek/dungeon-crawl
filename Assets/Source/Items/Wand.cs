@@ -5,6 +5,7 @@ namespace Assets.Source.Items
 {
     public abstract class Wand : Item
     {
+        public override ItemType ItemType => ItemType.Weapon;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public abstract int Inteligence { get; }

@@ -5,6 +5,7 @@ namespace Assets.Source.Items
 {
     public abstract class Item : IActor
     {
+        public abstract ItemType ItemType { get; }
         public abstract int MaxDurability { get; }
         public abstract int CurrentDurability { get; set; }
 

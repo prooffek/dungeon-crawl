@@ -4,6 +4,7 @@ namespace Assets.Source.Items
 {
     public abstract class Book : Item
     {
+        public override ItemType ItemType => ItemType.Consumable;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public int InteligencePoints { get; }

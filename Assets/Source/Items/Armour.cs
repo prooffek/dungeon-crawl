@@ -4,6 +4,7 @@ namespace Assets.Source.Items
 {
     public abstract class Armour : Item
     {
+        public override ItemType ItemType => ItemType.Armour;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public abstract int DefencePoints { get; }
