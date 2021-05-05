@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Actors;
+using Assets.Source.Core;
 using Assets.Source.Items;
 using DungeonCrawl.Core;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
+        bool _isStandingOnItem = false;
+        ItemActor _currentItemActor;
         public List<Item> Inventory { get; set; } = new List<Item>();
         protected override void OnUpdate(float deltaTime)
         {
@@ -35,6 +38,13 @@ namespace DungeonCrawl.Actors.Characters
                 TryMove(Direction.Right);
             }
 
+            if (_isStandingOnItem && Input.GetKeyDown(KeyCode.E))
+            {
+                HidePickUpInfo();
+                PickUpItem(_currentItemActor);
+                _isStandingOnItem = false;
+            }
+
             //this.StaminaPoints -= 1;
         }
 
@@ -53,14 +63,29 @@ namespace DungeonCrawl.Actors.Characters
 
         public override void HandleItem(ItemActor itemActor)
         {
+            DisplayPickUpInfo(itemActor.Item.DefaultName);
+            _isStandingOnItem = true;
+            _currentItemActor = itemActor;
+
+        }
+        
+        void PickUpItem(ItemActor itemActor)
+        {
+            _currentItemActor = null;
             itemActor.HandlePickUp(this);
-            PickUpItem(itemActor.Item);
+            Inventory.Add(itemActor.Item);
             ActorManager.Singleton.DestroyActor(itemActor);
         }
 
-        public void PickUpItem(Item item)
+        void DisplayPickUpInfo(string itemName)
         {
-            Inventory.Add(item);
+            UserInterface.Singleton.SetText($"Press 'E' to pick up {itemName}", UserInterface.TextPosition.BottomRight);
         }
+
+        void HidePickUpInfo()
+        {
+            UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+        }
+
     }
 }
