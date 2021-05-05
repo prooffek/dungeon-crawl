@@ -88,6 +88,21 @@ namespace DungeonCrawl.Actors.Characters
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
 
+        public override bool IsKeyPresent()
+        {
+            bool isKeyPresent = false;
+
+            foreach (Item item in Inventory)
+            {
+                if (item is Key)
+                {
+                    isKeyPresent = true;
+                    break;
+                }
+            }
+            return isKeyPresent;
+        }
+
         public override void HandleItem(ItemActor itemActor)
         {
             DisplayPickUpInfo(itemActor.Item.DefaultName);

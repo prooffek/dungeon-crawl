@@ -110,5 +110,11 @@ namespace DungeonCrawl.Actors
         public virtual void HandleItem(ItemActor itemActor)
         {
         }
+
+        // TODO Ask mentor about a structure and exact place of implementation of this method        
+        public virtual bool IsKeyPresent()
+        {
+            return false;
+        }
     }
 }

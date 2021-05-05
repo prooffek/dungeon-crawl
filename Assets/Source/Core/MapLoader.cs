@@ -7,6 +7,7 @@ using UnityEngine;
 using Assets.Source.Core;
 using Assets.Source.Items.Swords;
 using Assets.Source.Items;
+using Assets.Source.Actors;
 
 namespace DungeonCrawl.Core
 {
@@ -85,13 +86,20 @@ namespace DungeonCrawl.Core
                     ActorManager.Singleton.Spawn<River>(position);
                     break;
                 case 'g':
-                    ActorManager.Singleton.Spawn<GateForest>(position);
+                    ActorManager.Singleton.Spawn<Gate>(position);
                     break;
                 case 'h':
-                    ActorManager.Singleton.Spawn<GateForest2>(position);
+                    ActorManager.Singleton.Spawn<GateBorder>(position);
                     break;
                 case ' ':
                     break;
+                case 'k':
+                    ActorManager.Singleton.Spawn<Floor>(position);
+
+                    ItemActor keyActor = ActorManager.Singleton.Spawn<ItemActor>(position);
+                    keyActor.Item = new Key();
+                    keyActor.SetSprite(keyActor.Item.DefaultSpriteId);                  
+                    break;              
                 default:
                     throw new ArgumentOutOfRangeException();
             }
