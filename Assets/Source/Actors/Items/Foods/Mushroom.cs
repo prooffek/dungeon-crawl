@@ -17,7 +17,7 @@ namespace DungeonCrawl.Actors.Items.Foods
         public override void ActionOnUse(Player player)
         {
             player.StaminaPoints += this.NutritiousPoints;
-            player.Inteligence += this.Inteligence;
+            player.IntelligencePoints += this.Inteligence;
         }
     }
 }

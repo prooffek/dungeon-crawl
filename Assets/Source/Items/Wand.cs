@@ -15,7 +15,7 @@ namespace Assets.Source.Items
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            player.Inteligence += this.Inteligence;
+            player.IntelligencePoints += this.Inteligence;
             DecreaseItemDurability();
             //DestroyIffJunk(player);
         }

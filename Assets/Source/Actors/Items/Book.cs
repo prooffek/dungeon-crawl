@@ -15,7 +15,7 @@ namespace DungeonCrawl.Actors.Items.Books
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            player.Inteligence += InteligencePoints;
+            player.IntelligencePoints += InteligencePoints;
             DecreaseItemDurability();
             //DestroyIffJunk(player);
         }
