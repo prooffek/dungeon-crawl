@@ -108,37 +108,6 @@
     <Compile Include="Assets\Source\Core\GameManager.cs" />
     <Compile Include="Assets\Source\Items\Armours\KnightArmour.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Armours\EthernalArmourOfProtection.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Foods\Meat.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Wands\DruidsWand.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Item.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Swords\KnightSword.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Wands\AdeptsWand.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Foods\Mushroom.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Wands\SailorMoonWand.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Books\KnightsTraining.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Sword.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Potions\HealthPotion.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Wands\ArchmagesWandOfWisdom.cs" />
-    <Compile Include="Assets\Source\Actors\Items\PlaceItemsOnMap.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Books\AncientMedicine.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Armours\KingsArmourOfJustice.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Armours\KnightArmour.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Foods\Apple.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Wand.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Swords\EthernalSwordOfDestruction.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Books\PeasantsAndMasters.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Book.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Potion.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Wands\GreatWandOfAnnihilation.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Armour.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Food.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Potions\ManaPotion.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Swords\SoldiersSword.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Foods\Fish.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Armours\BasicArmour.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Books\PoemOfTheFeudalism.cs" />
-    <Compile Include="Assets\Source\Actors\Items\Swords\KingsSwordOfPower.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
