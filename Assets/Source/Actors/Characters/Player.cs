@@ -11,7 +11,8 @@ namespace DungeonCrawl.Actors.Characters
     {
         [SerializeField]
         ItemActor _currentItemActor;
-        public List<Item> Inventory { get; set; } = new List<Item>();
+        [SerializeField]
+        Inventory _inventory = new Inventory();
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -90,15 +91,6 @@ namespace DungeonCrawl.Actors.Characters
         public override bool IsKeyPresent()
         {
             bool isKeyPresent = false;
-
-            foreach (Item item in Inventory)
-            {
-                if (item is Key)
-                {
-                    isKeyPresent = true;
-                    break;
-                }
-            }
             return isKeyPresent;
         }
 
@@ -108,17 +100,22 @@ namespace DungeonCrawl.Actors.Characters
             _currentItemActor = itemActor;
 
         }
-        
-        void ClearCurrentItemActor()
+
+        public void Use(Item item)
         {
-            _currentItemActor = null;
+            _inventory.Use(this, item);
         }
 
+        // item pick up
         void PickUpItem(ItemActor itemActor)
         {
             itemActor.HandlePickUp(this);
-            Inventory.Add(itemActor.Item);
+            _inventory.Add(itemActor.Item);
             ActorManager.Singleton.DestroyActor(itemActor);
+        }
+        void ClearCurrentItemActor()
+        {
+            _currentItemActor = null;
         }
 
         void DisplayPickUpInfo(string itemName)

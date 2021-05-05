@@ -4,6 +4,8 @@ namespace Assets.Source.Items
 {
     public abstract class Potion : Item
     {
+        public override ItemType ItemType => ItemType.Consumable;
+        public override bool IsEquippable => false;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public abstract int HealthPoints { get; }
