@@ -1,11 +1,12 @@
 ﻿using System.Numerics;
+using Assets.Source.Actors;
 using DungeonCrawl.Core;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 namespace DungeonCrawl.Actors
 {
-    public abstract class Actor : MonoBehaviour
+    public abstract class Actor : MonoBehaviour, IActor
     {
         public (int x, int y) Position
         {
@@ -29,6 +30,10 @@ namespace DungeonCrawl.Actors
             SetSprite(DefaultSpriteId);
         }
 
+        internal void HandleItem(object itemActor)
+        {
+            throw new System.NotImplementedException();
+        }
 
         private void Update()
         {
@@ -40,7 +45,7 @@ namespace DungeonCrawl.Actors
             _spriteRenderer.sprite = ActorManager.Singleton.GetSprite(id);
         }
 
-        public void TryMove(Direction direction)
+        public virtual void TryMove(Direction direction)
         {
             var vector = direction.ToVector();
             (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
@@ -51,7 +56,6 @@ namespace DungeonCrawl.Actors
             {
                 // No obstacle found, just move
                 Position = targetPosition;
-                CameraController.Singleton.CenterCameraOnPlayer();
             }
             else
             {
@@ -59,7 +63,6 @@ namespace DungeonCrawl.Actors
                 {
                     // Allowed to move
                     Position = targetPosition;
-                    CameraController.Singleton.CenterCameraOnPlayer();
                 }
             }
         }
@@ -103,5 +106,9 @@ namespace DungeonCrawl.Actors
         ///     Default name assigned to this actor type
         /// </summary>
         public abstract string DefaultName { get; }
+
+        public virtual void HandleItem(ItemActor itemActor)
+        {
+        }
     }
 }

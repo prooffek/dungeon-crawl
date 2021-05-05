@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Source.Items;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
-using DungeonCrawl.Actors.Items;
 using UnityEngine;
 using UnityEngine.U2D;
 
