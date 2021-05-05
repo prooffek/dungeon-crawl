@@ -469,3 +469,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+#bart:
+Assets/Resources/roguelikeSheet_transparent.png
+
