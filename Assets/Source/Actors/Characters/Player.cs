@@ -91,15 +91,6 @@ namespace DungeonCrawl.Actors.Characters
         public override bool IsKeyPresent()
         {
             bool isKeyPresent = false;
-
-            foreach (Item item in Inventory)
-            {
-                if (item is Key)
-                {
-                    isKeyPresent = true;
-                    break;
-                }
-            }
             return isKeyPresent;
         }
 
