@@ -106,9 +106,20 @@ namespace DungeonCrawl.Actors.Characters
             _inventory.Use(this, item);
         }
 
+        public void DeleteFromInventory(Item item)
+        {
+            _inventory.Delete(item);
+        }
+
+        public void DropItemFromInventory(Item item)
+        {
+            _inventory.TryDrop(this, item);
+        }
+
         // item pick up
         void PickUpItem(ItemActor itemActor)
         {
+            
             itemActor.HandlePickUp(this);
             _inventory.Add(itemActor.Item);
             ActorManager.Singleton.DestroyActor(itemActor);
