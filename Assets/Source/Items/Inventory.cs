@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Source.Items
 {
+    [System.Serializable]
     public class Inventory
     {
         Dictionary<ItemType, List<Item>> _items = new Dictionary<ItemType, List<Item>>();
