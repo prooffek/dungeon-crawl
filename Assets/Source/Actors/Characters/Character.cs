@@ -1,4 +1,5 @@
 ﻿using DungeonCrawl.Core;
+using UnityEngine;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -9,22 +10,100 @@ namespace DungeonCrawl.Actors.Characters
         /// Player's stats properties section
         /// </summary>
         ///
-        public string characterName { get; private set; }
+        public string CharacterName { get; private set; }
 
-        public int characterLevel { get; private set; }
-
-        public int AttackPoints { get; set; }
-
-        public int HealthPoints { get; set; }
-        public int Inteligence { get; set; }
-
-        public int ManaPoints { get; set; }
-
-        public int DeffencePoints { get; set; }
-
-        public int StaminaPoints { get; set; }
-
-        public int ExperiencePoints { get; private set; }
+        public int CharacterLevel { get; private set; }
+        [SerializeField]
+        int _attackPoints;
+        public int AttackPoints
+        {
+            get
+            {
+                return _attackPoints;
+            }
+            set
+            {
+                _attackPoints = value;
+            }
+        }
+        [SerializeField]
+        int _healthPoints;
+        public int HealthPoints
+        {
+            get
+            {
+                return _healthPoints;
+            }
+            set
+            {
+                _healthPoints = value;
+            }
+        }
+        [SerializeField]
+        int _intelligencePoints;
+        public int IntelligencePoints
+        {
+            get
+            {
+                return _intelligencePoints;
+            }
+            set
+            {
+                _intelligencePoints = value;
+            }
+        }
+        [SerializeField]
+        int _manaPoints;
+        public int ManaPoints
+        {
+            get
+            {
+                return _manaPoints;
+            }
+            set
+            {
+                _manaPoints = value;
+            }
+        }
+        [SerializeField]
+        int _defencePoints;
+        public int DefencePoints
+        {
+            get
+            {
+                return _defencePoints;
+            }
+            set
+            {
+                _defencePoints = value;
+            }
+        }
+        [SerializeField]
+        int _staminaPoints;
+        public int StaminaPoints
+        {
+            get
+            {
+                return _staminaPoints;
+            }
+            set
+            {
+                _staminaPoints = value;
+            }
+        }
+        [SerializeField]
+        int _experiencePoints;
+        public int ExperiencePoints
+        {
+            get
+            {
+                return _experiencePoints;
+            }
+            set
+            {
+                _experiencePoints = value;
+            }
+        }
 
         public void ApplyDamage(int damage)
         {
