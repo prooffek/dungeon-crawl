@@ -1,6 +1,5 @@
 ﻿using System.Numerics;
-using Assets.Source.Actors.Items;
-using DungeonCrawl.Actors.Items;
+using Assets.Source.Actors;
 using DungeonCrawl.Core;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;

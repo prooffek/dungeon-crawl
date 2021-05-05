@@ -1,7 +1,7 @@
 ﻿using DungeonCrawl.Actors;
 using Assets.Source.Items;
 
-namespace Assets.Source.Actors.Items
+namespace Assets.Source.Actors
 {
     public class ItemActor : Actor
     {

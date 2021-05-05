@@ -5,9 +5,8 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Assets.Source.Core;
-using DungeonCrawl.Actors.Items.Weapons;
-using Source.Actors.Items.Swords;
-using static Source.Actors.Items.PlaceItemsOnMap;
+using Assets.Source.Items.Swords;
+using Assets.Source.Items;
 
 namespace DungeonCrawl.Core
 {
@@ -100,7 +99,7 @@ namespace DungeonCrawl.Core
 
         private static void SpawnItems(int level = 1)
         {
-            PlaceFoodOnMap();
+            ItemPlacer.PlaceFoodOnMap();
             //ActorManager.Singleton.Spawn<SoldiersSword>(2, -2);
             //PlaceRequiredItems(level);
             //ItemsPlacesIfPlayerIsLucky(level);

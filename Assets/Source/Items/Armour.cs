@@ -14,7 +14,7 @@ namespace Assets.Source.Items
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            player.DeffencePoints += DefencePoints;
+            player.DefencePoints += DefencePoints;
         }
 
         //public override void DestroyIffJunk(Player player)

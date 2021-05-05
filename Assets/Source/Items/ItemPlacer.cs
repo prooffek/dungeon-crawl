@@ -1,15 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using Assets.Source.Actors.Items;
-using Assets.Source.Items;
-using Assets.Source.Items.Foods;
-using DungeonCrawl.Core;
+using Assets.Source.Actors;
 using Assets.Source.Items.Armours;
-using Assets.Source.Items.Books;
-using Assets.Source.Items.Swords;
-using Assets.Source.Items.Wands;
-using UnityEngine;
+using DungeonCrawl.Core;
 
 namespace Assets.Source.Items
 {

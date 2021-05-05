@@ -1,5 +1,5 @@
-﻿using Assets.Source.Actors.Items;
-using DungeonCrawl.Actors.Items;
+﻿using Assets.Source.Actors;
+using Assets.Source.Items;
 using DungeonCrawl.Core;
 using System.Collections.Generic;
 using UnityEngine;
