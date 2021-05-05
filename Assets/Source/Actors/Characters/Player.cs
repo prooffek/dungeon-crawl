@@ -9,7 +9,7 @@ namespace DungeonCrawl.Actors.Characters
 {
     public class Player : Character
     {
-        bool _isStandingOnItem = false;
+        [SerializeField]
         ItemActor _currentItemActor;
         public List<Item> Inventory { get; set; } = new List<Item>();
         protected override void OnUpdate(float deltaTime)
@@ -38,14 +38,40 @@ namespace DungeonCrawl.Actors.Characters
                 TryMove(Direction.Right);
             }
 
-            if (_isStandingOnItem && Input.GetKeyDown(KeyCode.E))
+            if (_currentItemActor != null && Input.GetKeyDown(KeyCode.E))
             {
                 HidePickUpInfo();
                 PickUpItem(_currentItemActor);
-                _isStandingOnItem = false;
+                ClearCurrentItemActor();
             }
 
             //this.StaminaPoints -= 1;
+        }
+
+        public override void TryMove(Direction direction)
+        {
+            var vector = direction.ToVector();
+            (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
+
+            var actorAtTargetPosition = ActorManager.Singleton.GetActorAt(targetPosition);
+
+            if (actorAtTargetPosition == null)
+            {
+                // No obstacle found, just move
+                ClearCurrentItemActor();
+                HidePickUpInfo();
+                Position = targetPosition;
+                CameraController.Singleton.CenterCameraOnPlayer();
+            }
+            else
+            {
+                if (actorAtTargetPosition.OnCollision(this))
+                {
+                    // Allowed to move
+                    Position = targetPosition;
+                    CameraController.Singleton.CenterCameraOnPlayer();
+                }
+            }
         }
 
         public override bool OnCollision(Actor anotherActor)
@@ -64,14 +90,17 @@ namespace DungeonCrawl.Actors.Characters
         public override void HandleItem(ItemActor itemActor)
         {
             DisplayPickUpInfo(itemActor.Item.DefaultName);
-            _isStandingOnItem = true;
             _currentItemActor = itemActor;
 
         }
         
-        void PickUpItem(ItemActor itemActor)
+        void ClearCurrentItemActor()
         {
             _currentItemActor = null;
+        }
+
+        void PickUpItem(ItemActor itemActor)
+        {
             itemActor.HandlePickUp(this);
             Inventory.Add(itemActor.Item);
             ActorManager.Singleton.DestroyActor(itemActor);
@@ -86,6 +115,5 @@ namespace DungeonCrawl.Actors.Characters
         {
             UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
         }
-
     }
 }

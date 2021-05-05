@@ -45,7 +45,7 @@ namespace DungeonCrawl.Actors
             _spriteRenderer.sprite = ActorManager.Singleton.GetSprite(id);
         }
 
-        public void TryMove(Direction direction)
+        public virtual void TryMove(Direction direction)
         {
             var vector = direction.ToVector();
             (int x, int y) targetPosition = (Position.x + vector.x, Position.y + vector.y);
@@ -56,7 +56,6 @@ namespace DungeonCrawl.Actors
             {
                 // No obstacle found, just move
                 Position = targetPosition;
-                CameraController.Singleton.CenterCameraOnPlayer(); // TODO only when this is Player
             }
             else
             {
@@ -64,7 +63,6 @@ namespace DungeonCrawl.Actors
                 {
                     // Allowed to move
                     Position = targetPosition;
-                    CameraController.Singleton.CenterCameraOnPlayer(); // TODO only when this is Player
                 }
             }
         }
