@@ -32,10 +32,6 @@ namespace Assets.Source.Items
             if (item.IsEquippable)
             {
                 Item[] itemSlots = _equipment[item.ItemType];
-                while (!isEquipped)
-                {
-
-                }
                 for (var i = 0; i < itemSlots.Length; i++)
                 {
                     if (itemSlots[i] is null)
@@ -47,6 +43,7 @@ namespace Assets.Source.Items
                         break;
                     }
                 }
+
                 if (!isEquipped)
                 {
                     itemSlots[0].ActionOnUse(player);
@@ -54,6 +51,7 @@ namespace Assets.Source.Items
                     item.ActionOnUse(player);
                 }
             }
+
             else
             {
                 item.ActionOnUse(player);
