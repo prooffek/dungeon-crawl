@@ -40,14 +40,18 @@ namespace Assets.Source.Items
                 {
                     if (itemSlots[i] is null)
                     {
+                        itemSlots[i].ActionOnUse(player);
                         itemSlots[i] = item;
+                        item.ActionOnUse(player);
                         isEquipped = true;
                         break;
                     }
                 }
                 if (!isEquipped)
                 {
+                    itemSlots[0].ActionOnUse(player);
                     itemSlots[0] = item;
+                    item.ActionOnUse(player);
                 }
             }
             else
