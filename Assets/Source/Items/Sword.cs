@@ -6,6 +6,7 @@ namespace Assets.Source.Items
     public abstract class Sword : Item
     {
         public override ItemType ItemType => ItemType.Weapon;
+        public override bool IsEquippable => false;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public override int MaxDurability { get; }

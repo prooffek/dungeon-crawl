@@ -13,23 +13,47 @@ namespace Assets.Source.Items
     public class Inventory
     {
         Dictionary<ItemType, List<Item>> _items = new Dictionary<ItemType, List<Item>>();
+        Dictionary<ItemType, Item[]> _equipment = new Dictionary<ItemType, Item[]>();
 
         public Inventory()
         {
-            foreach (int value in Enum.GetValues(typeof(ItemType)))
-            {
-                _items.Add((ItemType)value, new List<Item>());
-            }
+            ConfigureInventory();
         }
+
 
         public void Add(Item item)
         {
             _items[item.ItemType].Add(item);
         }
 
-        public void Equip(Player player, Item item)
+        public void Use(Player player, Item item)
         {
-            item.ActionOnUse(player);
+            bool isEquipped = false;
+            if (item.IsEquippable)
+            {
+                Item[] itemSlots = _equipment[item.ItemType];
+                while (!isEquipped)
+                {
+
+                }
+                for (var i = 0; i < itemSlots.Length; i++)
+                {
+                    if (itemSlots[i] is null)
+                    {
+                        itemSlots[i] = item;
+                        isEquipped = true;
+                        break;
+                    }
+                }
+                if (!isEquipped)
+                {
+                    itemSlots[0] = item;
+                }
+            }
+            else
+            {
+                item.ActionOnUse(player);
+            }
         }
 
         /// <summary>
@@ -58,6 +82,41 @@ namespace Assets.Source.Items
         public void Delete(Item item)
         {
             _items[item.ItemType].Remove(item);
+        }
+
+        void ConfigureInventory()
+        {
+            Array itemTypeValues = Enum.GetValues(typeof(ItemType));
+            foreach (int value in itemTypeValues)
+            {
+                _items.Add((ItemType)value, new List<Item>());
+            }
+
+            ConfigureEquipment(itemTypeValues);
+        }
+
+        /// <summary>
+        /// Here you can configure maximum amount of equippable items by type
+        /// </summary>
+        /// <param name="itemTypeValues"></param>
+        private void ConfigureEquipment(Array itemTypeValues)
+        {
+            foreach (int value in itemTypeValues)
+            {
+                var enumValue = (ItemType)value;
+
+                switch (enumValue)
+                {
+                    case ItemType.Armour:
+                        _equipment.Add(enumValue, new Item[1]);
+                        break;
+                    case ItemType.Weapon:
+                        _equipment.Add(enumValue, new Item[2]);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

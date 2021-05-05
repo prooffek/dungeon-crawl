@@ -95,9 +95,9 @@ namespace DungeonCrawl.Actors.Characters
 
         }
 
-        public void Equip(Item item)
+        public void Use(Item item)
         {
-            _inventory.Equip(this, item);
+            _inventory.Use(this, item);
         }
 
         // item pick up

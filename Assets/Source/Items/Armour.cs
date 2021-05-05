@@ -5,6 +5,7 @@ namespace Assets.Source.Items
     public abstract class Armour : Item
     {
         public override ItemType ItemType => ItemType.Armour;
+        public override bool IsEquippable => true;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public abstract int DefencePoints { get; }
