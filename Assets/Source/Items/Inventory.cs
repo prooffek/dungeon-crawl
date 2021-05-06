@@ -1,4 +1,5 @@
 ﻿using Assets.Source.Actors;
+using DungeonCrawl;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
 using System;
@@ -9,49 +10,33 @@ using System.Threading.Tasks;
 
 namespace Assets.Source.Items
 {
-    [System.Serializable]
+    [Serializable] // TODO Serialize _items and _equipment
     public class Inventory
     {
-        Dictionary<ItemType, List<Item>> _items = new Dictionary<ItemType, List<Item>>();
-        Dictionary<ItemType, Item[]> _equipment = new Dictionary<ItemType, Item[]>();
+        Dictionary<ItemType, List<Item>> _items;
+        Equipment _equipment;
 
         public Inventory()
         {
             ConfigureInventory();
         }
 
-
         public void Add(Item item)
         {
             _items[item.ItemType].Add(item);
         }
 
+        /// <summary>
+        /// Equips and uses the item if it's equippable, otherwise just uses it
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="item"></param>
         public void Use(Player player, Item item)
         {
-            bool isEquipped = false;
             if (item.IsEquippable)
             {
-                Item[] itemSlots = _equipment[item.ItemType];
-                for (var i = 0; i < itemSlots.Length; i++)
-                {
-                    if (itemSlots[i] is null)
-                    {
-                        itemSlots[i].ActionOnUse(player);
-                        itemSlots[i] = item;
-                        item.ActionOnUse(player);
-                        isEquipped = true;
-                        break;
-                    }
-                }
-
-                if (!isEquipped)
-                {
-                    itemSlots[0].ActionOnUse(player);
-                    itemSlots[0] = item;
-                    item.ActionOnUse(player);
-                }
+                _equipment.EquipItem(player, item);
             }
-
             else
             {
                 item.ActionOnUse(player);
@@ -59,7 +44,7 @@ namespace Assets.Source.Items
         }
 
         /// <summary>
-        /// Returns true if there is free space at player's position
+        /// Returns true if there is free space at player's position and drops the item if so
         /// </summary>
         /// <param name="player"></param>
         /// <param name="item">Item to drop</param>
@@ -69,56 +54,44 @@ namespace Assets.Source.Items
             var playerPosition = player.Position;
             var itemAtPlayerPosition = ActorManager.Singleton.GetActorAt<ItemActor>(playerPosition);
 
-            if (itemAtPlayerPosition is null)
-            {
-                Delete(item);
-                ItemActor itemActor = ActorManager.Singleton.Spawn<ItemActor>(playerPosition, item.DefaultName);
-                itemActor.Item = item;
-                itemActor.SetSprite(item.DefaultSpriteId);
-                return true;
-            }
+            if (itemAtPlayerPosition is null) return Drop(item, playerPosition);
 
             return false;
         }
 
+        /// <summary>
+        /// Removes the item from inventory
+        /// </summary>
+        /// <param name="item"></param>
         public void Delete(Item item)
         {
             _items[item.ItemType].Remove(item);
         }
 
-        void ConfigureInventory()
+        bool Drop(Item item, (int x, int y) playerPosition)
         {
-            Array itemTypeValues = Enum.GetValues(typeof(ItemType));
-            foreach (int value in itemTypeValues)
-            {
-                _items.Add((ItemType)value, new List<Item>());
-            }
-
-            ConfigureEquipment(itemTypeValues);
+            Delete(item);
+            ItemActor itemActor = ActorManager.Singleton.Spawn<ItemActor>(playerPosition, item.DefaultName); // TODO refactor this to Spawn overload
+            itemActor.Item = item;
+            itemActor.SetSprite(item.DefaultSpriteId);
+            return true;
         }
 
         /// <summary>
-        /// Here you can configure maximum amount of equippable items by type
+        /// Initializes data structures needed for this class to work
         /// </summary>
-        /// <param name="itemTypeValues"></param>
-        private void ConfigureEquipment(Array itemTypeValues)
+        void ConfigureInventory()
         {
-            foreach (int value in itemTypeValues)
-            {
-                var enumValue = (ItemType)value;
+            _items = new Dictionary<ItemType, List<Item>>();
+            _equipment = new Equipment();
+            var itemTypes = Utilities.GetEnumMembers<ItemType>();
 
-                switch (enumValue)
-                {
-                    case ItemType.Armour:
-                        _equipment.Add(enumValue, new Item[1]);
-                        break;
-                    case ItemType.Weapon:
-                        _equipment.Add(enumValue, new Item[2]);
-                        break;
-                    default:
-                        break;
-                }
+            foreach (ItemType type in itemTypes)
+            {
+                _items.Add(type, new List<Item>());
             }
+
+            _equipment.Configure(itemTypes);
         }
 
         public bool IsKeyPresent()

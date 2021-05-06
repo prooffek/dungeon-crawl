@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DungeonCrawl
 {
@@ -29,7 +30,20 @@ namespace DungeonCrawl
                     throw new ArgumentOutOfRangeException(nameof(dir), dir, null);
             }
         }
-        
+
+        /// <summary>
+        /// Returns all possible enum values in typed format
+        /// </summary>
+        /// <returns><see cref="Array"/> of <see cref="{T}"/>s</returns>
+        public static IEnumerable<T> GetEnumMembers<T>() where T : struct, IComparable, IFormattable, IConvertible
+        {
+            var enumType = typeof(T);
+
+            if (!enumType.IsEnum) throw new ArgumentException();
+
+            return (T[])Enum.GetValues(enumType);
+        }
+
         internal static bool GetRandomBoolean()
         {
             return Convert.ToBoolean(random.Next(2));
