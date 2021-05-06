@@ -10,12 +10,15 @@ namespace DungeonCrawl.Actors.Static
 
         public override bool OnCollision(Actor anotherActor)
         {
-            bool isKeyPresent;
+            bool isKeyPresent;          
+            isKeyPresent = anotherActor.HasKey();
             
-            isKeyPresent = anotherActor.IsKeyPresent();
-            Debug.Log($"STATUS OF THE KEY IS : {isKeyPresent}");
+            if (isKeyPresent) anotherActor.IsNextMap();
+
             return isKeyPresent;
         }
+
+        
 
         
     }

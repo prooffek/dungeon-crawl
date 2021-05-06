@@ -120,5 +120,14 @@ namespace Assets.Source.Items
                 }
             }
         }
+
+        public bool IsKeyPresent()
+        {
+            foreach (Item item in _items[ItemType.Miscellaneous])
+            {
+                if (item.DefaultName.StartsWith("Key")) return true;
+            }
+            return false;
+        }
     }
 }

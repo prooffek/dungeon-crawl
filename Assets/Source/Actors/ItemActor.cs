@@ -25,7 +25,7 @@ namespace Assets.Source.Actors
         }
 
 
-        public override int Z => Item is null ? base.Z : Item.Z;
+        public override int Z => Item is null ? -1 : Item.Z;
 
 
     }

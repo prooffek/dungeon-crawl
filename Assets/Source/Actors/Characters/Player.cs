@@ -13,6 +13,12 @@ namespace DungeonCrawl.Actors.Characters
         ItemActor _currentItemActor;
         [SerializeField]
         Inventory _inventory = new Inventory();
+
+        private bool WentToNextMap;
+
+        public override int DefaultSpriteId => 24;
+        public override string DefaultName => "Player";
+
         protected override void OnUpdate(float deltaTime)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -45,6 +51,8 @@ namespace DungeonCrawl.Actors.Characters
                 PickUpItem(_currentItemActor);
                 ClearCurrentItemActor();
             }
+
+            GoToNextMap();
 
             //this.StaminaPoints -= 1;
         }
@@ -85,14 +93,13 @@ namespace DungeonCrawl.Actors.Characters
             Debug.Log("Oh no, I'm dead!");
         }
 
-        public override int DefaultSpriteId => 24;
-        public override string DefaultName => "Player";
+        
 
-        public override bool IsKeyPresent()
-        {
-            bool isKeyPresent = false;
-            return isKeyPresent;
-        }
+        public override bool HasKey() => _inventory.IsKeyPresent();
+        //{
+        //    bool isKeyPresent = false;
+        //    return isKeyPresent;
+        //}
 
         public override void HandleItem(ItemActor itemActor)
         {
@@ -137,6 +144,23 @@ namespace DungeonCrawl.Actors.Characters
         void HidePickUpInfo()
         {
             UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+        }
+
+        void GoToNextMap()
+        {
+            if (this.WentToNextMap == true)
+            {
+                this.WentToNextMap = false;
+                // nie działa:
+                //ActorManager manager = new ActorManager();
+                //manager.DestroyAllActors();
+                MapLoader.LoadMap(1);
+            }
+        }
+
+        public override void IsNextMap()
+        {
+            this.WentToNextMap = true;
         }
     }
 }

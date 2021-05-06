@@ -112,9 +112,13 @@ namespace DungeonCrawl.Actors
         }
 
         // TODO Ask mentor about a structure and exact place of implementation of this method        
-        public virtual bool IsKeyPresent()
+        public virtual bool HasKey()
         {
             return false;
+        }
+
+        public virtual void IsNextMap()
+        {
         }
     }
 }
