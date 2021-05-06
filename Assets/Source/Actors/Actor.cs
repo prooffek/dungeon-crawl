@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using Assets.Source.Actors;
 using DungeonCrawl.Core;
 using UnityEngine;
@@ -32,6 +33,7 @@ namespace DungeonCrawl.Actors
 
         public virtual void HandleItem(object itemActor)
         {
+            throw new NotImplementedException();
         }
 
         private void Update()
