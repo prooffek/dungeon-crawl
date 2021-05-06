@@ -30,9 +30,8 @@ namespace DungeonCrawl.Actors
             SetSprite(DefaultSpriteId);
         }
 
-        internal void HandleItem(object itemActor)
+        public virtual void HandleItem(object itemActor)
         {
-            throw new System.NotImplementedException();
         }
 
         private void Update()
