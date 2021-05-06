@@ -65,7 +65,7 @@ namespace Assets.Source.Core
             int exp = player.ExperiencePoints;
             int level = player.CharacterLevel;
 
-            string inventory = player._inventory.ToString();
+            
 
             string text = _display.PrintStats(hp, max_hp, mp, att, def, sta, exp, level);
             SetText(playerName, TextPosition.TopCenter);
