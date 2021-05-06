@@ -34,8 +34,8 @@ namespace Assets.Source.Items
         {
             CurrentDurability -= 1;
         }
-        
-        
+
+
         //public virtual void DestroyIffJunk(Player player)
         //{
         //    if (CurrentDurability <= 0)
