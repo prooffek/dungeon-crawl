@@ -12,14 +12,27 @@ namespace DungeonCrawl.Core
         {
 
             MapLoader.LoadMap(0);
-
+            
             
         }
+
+        //public void LoadNextMap(int id)
+        //{
+        //    MapLoader.LoadMap(id);
+        //}
+
+        /// to ciekawe:
+
+        //public void OnLevelWasLoaded(int level)
+        //{
+            
+        //}
+
 
         //private void Update()
         //{
         //    GameObject player = GameObject.Find("Player");
-            
+
         //}
 
     }

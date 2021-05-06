@@ -93,5 +93,14 @@ namespace Assets.Source.Items
 
             _equipment.Configure(itemTypes);
         }
+
+        public bool IsKeyPresent()
+        {
+            foreach (Item item in _items[ItemType.Miscellaneous])
+            {
+                if (item.DefaultName.StartsWith("Key")) return true;
+            }
+            return false;
+        }
     }
 }
