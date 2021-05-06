@@ -15,6 +15,8 @@ namespace Assets.Source.Actors
 
         public override bool OnCollision(Actor anotherActor)
         {
+            if (!(Item is null)) Item.OnCollision(anotherActor); // experimental
+
             anotherActor.HandleItem(this);
             return true;
         }
