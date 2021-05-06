@@ -10,11 +10,11 @@ namespace DungeonCrawl.Actors.Characters
         /// Player's stats properties section
         /// </summary>
         ///
-        public string CharacterName { get; private set; }
+        public string CharacterName { get; private set; } = "BaRbarA wojowniczka";
 
         public int CharacterLevel { get; private set; }
         [SerializeField]
-        int _attackPoints;
+        int _attackPoints = 10;
         public int AttackPoints
         {
             get
@@ -27,7 +27,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
         [SerializeField]
-        int _healthPoints;
+        int _healthPoints = 100;
         public int HealthPoints
         {
             get
@@ -39,8 +39,22 @@ namespace DungeonCrawl.Actors.Characters
                 _healthPoints = value;
             }
         }
+
+        int _maxHealthPoints = 100;
+        public int MaxHealthPoints
+        {
+            get
+            {
+                return _maxHealthPoints;
+            }
+            set
+            {
+                _maxHealthPoints = value;
+            }
+        }
+
         [SerializeField]
-        int _intelligencePoints;
+        int _intelligencePoints = 1;
         public int IntelligencePoints
         {
             get
@@ -53,7 +67,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
         [SerializeField]
-        int _manaPoints;
+        int _manaPoints = 10;
         public int ManaPoints
         {
             get
@@ -66,7 +80,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
         [SerializeField]
-        int _defencePoints;
+        int _defencePoints = 1;
         public int DefencePoints
         {
             get
@@ -79,7 +93,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
         [SerializeField]
-        int _staminaPoints;
+        int _staminaPoints = 100;
         public int StaminaPoints
         {
             get
@@ -92,7 +106,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
         [SerializeField]
-        int _experiencePoints;
+        int _experiencePoints = 0;
         public int ExperiencePoints
         {
             get

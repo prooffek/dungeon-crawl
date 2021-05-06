@@ -12,7 +12,9 @@ namespace DungeonCrawl.Actors.Characters
         [SerializeField]
         ItemActor _currentItemActor;
         [SerializeField]
-        Inventory _inventory = new Inventory();
+
+        // do zmiany - roboczo
+        Inventory _inventory { get; set; } = new Inventory();
 
         private bool WentToNextMap;
 
@@ -54,7 +56,6 @@ namespace DungeonCrawl.Actors.Characters
 
             GoToNextMap();
 
-            //this.StaminaPoints -= 1;
         }
 
         public override void TryMove(Direction direction)
@@ -81,6 +82,17 @@ namespace DungeonCrawl.Actors.Characters
                     CameraController.Singleton.CenterCameraOnPlayer();
                 }
             }
+
+            if (this.StaminaPoints <= 0)
+            {
+                this.HealthPoints -= 1;
+            }
+            else
+            {
+                this.StaminaPoints -= 1;
+            }
+
+
         }
 
         public override bool OnCollision(Actor anotherActor)
@@ -93,7 +105,7 @@ namespace DungeonCrawl.Actors.Characters
             Debug.Log("Oh no, I'm dead!");
         }
 
-        
+
 
         public override bool HasKey() => _inventory.IsKeyPresent();
         //{
@@ -125,7 +137,7 @@ namespace DungeonCrawl.Actors.Characters
         // item pick up
         void PickUpItem(ItemActor itemActor)
         {
-            
+
             itemActor.HandlePickUp(this);
             _inventory.Add(itemActor.Item);
             // _inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
@@ -151,10 +163,16 @@ namespace DungeonCrawl.Actors.Characters
             if (this.WentToNextMap == true)
             {
                 this.WentToNextMap = false;
-                // nie działa:
-                //ActorManager manager = new ActorManager();
-                //manager.DestroyAllActors();
+
+                // TEST: PASS STAMINA POINTS TO NEXT MAP AFTER SPAWNING PLAYER
+                //
+                var v = ActorManager.Singleton.Player.StaminaPoints;
                 MapLoader.LoadMap(1);
+                ActorManager.Singleton.Player.StaminaPoints = v;
+                //
+                // END OF TEST
+
+
             }
         }
 

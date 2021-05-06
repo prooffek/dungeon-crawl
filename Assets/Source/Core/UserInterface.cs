@@ -1,4 +1,7 @@
-﻿using TMPro;
+﻿using DungeonCrawl.Actors;
+using DungeonCrawl.Actors.Characters;
+using DungeonCrawl.Core;
+using TMPro;
 using UnityEngine;
 using static DungeonCrawl.Actors.Characters.Character;
 
@@ -39,26 +42,36 @@ namespace Assets.Source.Core
 
             Singleton = this;
 
-            _textComponents = GetComponentsInChildren<TextMeshProUGUI>();
+            _textComponents = GetComponentsInChildren<TextMeshProUGUI>();          
+        }
+
+        public void Update()
+        {           
+            UpdatePlayerStats();           
+        }
+
+        public void UpdatePlayerStats()
+        {
             Display _display = new Display();
+            Player player = ActorManager.Singleton.Player;
 
-            ///
-            //dodane roboczo, do usunięcia gdy implementacja klasy Character zostanie skończona
-            string playerName = "Yezekhiel";
-            int hp = 100;
-            int mp = 100;
-            int att = 1;
-            int def = 1;
-            int sta = 100;
-            int exp = 1;
-            int level = 1;
-            //
-            ///
+            string playerName = player.CharacterName;
+            int hp = player.HealthPoints;
+            int max_hp = player.MaxHealthPoints;
+            int mp = player.ManaPoints;
+            int att = player.AttackPoints;
+            int def = player.DefencePoints;
+            int sta = player.StaminaPoints;
+            int exp = player.ExperiencePoints;
+            int level = player.CharacterLevel;
 
+            
 
-            string text = _display.PrintStats( hp,  mp,  att,  def,  sta,  exp,  level);
+            string text = _display.PrintStats(hp, max_hp, mp, att, def, sta, exp, level);
             SetText(playerName, TextPosition.TopCenter);
             SetText(text, TextPosition.BottomLeft);
+
+            SetText("inventory in development", TextPosition.BottomRight);
         }
 
         /// <summary>
