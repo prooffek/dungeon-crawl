@@ -71,7 +71,7 @@ namespace Assets.Source.Core
             SetText(playerName, TextPosition.TopCenter);
             SetText(text, TextPosition.BottomLeft);
 
-            SetText(inventory, TextPosition.BottomRight);
+            SetText("inventory in development", TextPosition.BottomRight);
         }
 
         /// <summary>
