@@ -21,7 +21,7 @@ namespace DungeonCrawl.Core
         private SpriteAtlas _spriteAtlas;
         private HashSet<Actor> _allActors;
         private Dictionary<int, Item> _itemsDict;
-        public Player Player { get; private set; }
+        public Player Player => GetPlayer();
 
         private void Awake()
         {
@@ -57,11 +57,18 @@ namespace DungeonCrawl.Core
         {
             return _allActors.FirstOrDefault(actor => actor.Detectable && actor is T && actor.Position == position) as T;
         }
-        
+
         /// <summary>
         ///     returns a list with positions of empty fields on the board
         /// </summary>
         /// <returns></returns>
+
+        Player GetPlayer()
+        {
+            return _allActors.FirstOrDefault(actor => actor is Player) as Player;
+        }
+
+
         public List<(int, int)> GetEmptyBoardFields()
         {
             List<(int, int)> listOfFields = new List<(int, int)>();
@@ -138,9 +145,11 @@ namespace DungeonCrawl.Core
 
             _allActors.Add(component);
 
-            if (component is Player player) Player = player;
+            //if (component is Player player) Player = player;
 
             return component;
         }
+
+
     }
 }

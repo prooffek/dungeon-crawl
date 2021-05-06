@@ -8,12 +8,12 @@ namespace Assets.Source.Core
 {
     public class Display
     {
-        public string PrintStats(int hp, int mp, int att, int def, int sta, int exp, int level)
+        public string PrintStats(int hp, int max_hp, int mp, int att, int def, int sta, int exp, int level)
         {
            string statsTable = $@"
 
     
-    HP : {hp}
+    HP : current: {hp} / max: {max_hp}
     MP : {mp}
     ATT: {att}
     DEF: {def}
