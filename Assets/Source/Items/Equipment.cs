@@ -92,7 +92,7 @@ namespace Assets.Source.Items
         int GetItemIndex(Item item)
         {
             Item[] items = _items[item.ItemType];
-            return Array.IndexOf(items, Array.Find(items, element => ReferenceEquals(element, item)));
+            return Array.IndexOf(items, Array.Find(items, element => ReferenceEquals(element, item))); // TODO is this match necessary?
         }
 
         bool AlreadyEquipped(Item item)
