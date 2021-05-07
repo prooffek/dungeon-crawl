@@ -4,6 +4,7 @@ using System.Linq;
 using Assets.Source.Actors;
 using Assets.Source.Core;
 using Assets.Source.Items;
+using Assets.Source.Items.ItemClasses;
 using DungeonCrawl.Actors;
 using DungeonCrawl.Core;
 using UnityEngine;
@@ -71,10 +72,15 @@ namespace Source.Actors.Inventory
         {
             if (_itemsInInventoryCounter.Count > _selectedField )
             {
-                Item selectedItem = _itemsInInventoryCounter.ElementAt(_selectedField).Key;
+                Item selectedItem = GetSelectedItem();
                 string text = $"{selectedItem.DefaultName} x {_itemsInInventoryCounter[selectedItem]}";
                 UserInterface.Singleton.SetText(text, UserInterface.TextPosition.BottomRight);
             }
+        }
+
+        private static Item GetSelectedItem() // TODO which item do I access?
+        {
+            return _itemsInInventoryCounter.ElementAt(_selectedField).Key;
         }
 
         private static void CreateInventoryItems()
@@ -100,7 +106,7 @@ namespace Source.Actors.Inventory
             }
         }
 
-        private static void AddToInventoryDict(Item item)
+        private static void AddToInventoryDict(Item item) // TODO which item do I access?
         {
             if (_itemsInInventoryCounter.Keys.Contains(item))
                 _itemsInInventoryCounter[item]++;
@@ -146,6 +152,27 @@ namespace Source.Actors.Inventory
             {
                 // Move right
                 _selectedField++;
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                var selectedItem = GetSelectedItem();
+
+                if (selectedItem.IsEquippable) // TODO is this any different than checking type?
+                {
+                    var equippableItem = (IEquippable)selectedItem;
+                    InventoryBackground background = ActorManager.Singleton.GetActorAt<InventoryBackground>(_positionsList[_selectedField]);
+
+                    var spriteToSet = equippableItem.IsEquipped ? 247 : 546;
+                    //background.SetSprite(spriteToSet);
+                }
+
+                ActorManager.Singleton.Player.Use(selectedItem);
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                ActorManager.Singleton.Player.DropItemFromInventory(GetSelectedItem());
             }
             
             _selectedField = _selectedField >= 0 ? _selectedField % 10 : 9;
