@@ -10,9 +10,10 @@ namespace DungeonCrawl.Actors.Characters
         /// Player's stats properties section
         /// </summary>
         ///
-        public string CharacterName { get; private set; } = "BaRbarA wojowniczka";
+        public string CharacterName { get; private set; } = "Yezekhiel";
 
         public int CharacterLevel { get; private set; }
+
         [SerializeField]
         int _attackPoints = 10;
         public int AttackPoints

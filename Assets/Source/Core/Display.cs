@@ -25,5 +25,13 @@ namespace Assets.Source.Core
 ";
             return statsTable;
         }
+
+        public string PrintMapName(int mapNumber, string mapName)
+        {
+            string MapName = $@"WORLD {mapNumber}: {mapName}";
+
+            return MapName;
+        }
+
     }
 }

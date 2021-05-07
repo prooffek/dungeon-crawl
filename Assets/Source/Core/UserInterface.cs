@@ -1,6 +1,7 @@
 ﻿using DungeonCrawl.Actors;
 using DungeonCrawl.Actors.Characters;
 using DungeonCrawl.Core;
+using Assets.Resources;
 using TMPro;
 using UnityEngine;
 using static DungeonCrawl.Actors.Characters.Character;
@@ -47,8 +48,10 @@ namespace Assets.Source.Core
 
         public void Update()
         {           
-            UpdatePlayerStats();           
+            UpdatePlayerStats();          
         }
+
+        
 
         public void UpdatePlayerStats()
         {
@@ -65,11 +68,15 @@ namespace Assets.Source.Core
             int exp = player.ExperiencePoints;
             int level = player.CharacterLevel;
 
-            
+            int mapNumber = player.CurrentWorldNumber;
+            string mapName = Maps.MapNames[mapNumber];
 
-            string text = _display.PrintStats(hp, max_hp, mp, att, def, sta, exp, level);
+            string textStats = _display.PrintStats(hp, max_hp, mp, att, def, sta, exp, level);
+            string textMapName = _display.PrintMapName(mapNumber, mapName);
+
             SetText(playerName, TextPosition.TopCenter);
-            SetText(text, TextPosition.BottomLeft);
+            SetText(textStats, TextPosition.BottomLeft);
+            SetText(textMapName, TextPosition.TopRight);
 
             //SetText("inventory in development", TextPosition.BottomRight);
         }

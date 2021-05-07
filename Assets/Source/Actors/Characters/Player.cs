@@ -19,6 +19,8 @@ namespace DungeonCrawl.Actors.Characters
 
         private bool WentToNextMap;
 
+        public int CurrentWorldNumber { get; private set; } = 1;
+
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
 
@@ -66,7 +68,7 @@ namespace DungeonCrawl.Actors.Characters
                     ClearCurrentItemActor();
                 }
             }
-            
+
             InventoryDesplayManagement(_isInventoryOpen);
 
             GoToNextMap();
@@ -179,14 +181,19 @@ namespace DungeonCrawl.Actors.Characters
             if (this.WentToNextMap == true)
             {
                 this.WentToNextMap = false;
+                int nextWorldNumber = CurrentWorldNumber + 1;
 
-                // TEST: PASS STAMINA POINTS TO NEXT MAP AFTER SPAWNING PLAYER
+                // PASSING PLAYER DATA THROUGH WORLDS
                 //
-                var v = ActorManager.Singleton.Player.StaminaPoints;
-                MapLoader.LoadMap(1);
-                ActorManager.Singleton.Player.StaminaPoints = v;
+
+                Inventory inventory = ActorManager.Singleton.Player.Inventory;
+
+                MapLoader.LoadMap(nextWorldNumber);
+
+                ActorManager.Singleton.Player.CurrentWorldNumber += 1;
+                ActorManager.Singleton.Player.Inventory = inventory;
                 //
-                // END OF TEST
+                // 
 
 
             }
@@ -196,7 +203,7 @@ namespace DungeonCrawl.Actors.Characters
         {
             this.WentToNextMap = true;
         }
-        
+
         public Dictionary<ItemType, List<Item>>.ValueCollection GetItemsInInventory()
         {
             return Inventory.Items.Values;

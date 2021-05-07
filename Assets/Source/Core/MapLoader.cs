@@ -23,7 +23,7 @@ namespace DungeonCrawl.Core
         public static void LoadMap(int id)
         {
             ActorManager.Singleton.DestroyAllActors();
-            var lines = Regex.Split(Resources.Load<TextAsset>($"map_{id}").text, "\r\n|\r|\n");
+            var lines = Regex.Split(Resources.Load<TextAsset>($"map_{id - 1}").text, "\r\n|\r|\n");
 
             // Read map size from the first line
             var split = lines[0].Split(' ');
