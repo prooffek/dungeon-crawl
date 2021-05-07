@@ -67,6 +67,14 @@ namespace Assets.Source.Items
         {
             _items[item.ItemType].Remove(item);
         }
+        public bool IsKeyPresent()
+        {
+            foreach (Item item in _items[ItemType.Miscellaneous])
+            {
+                if (item.DefaultName.StartsWith("Key")) return true;
+            }
+            return false;
+        }
 
         bool Drop(Item item, (int x, int y) playerPosition)
         {
@@ -93,7 +101,8 @@ namespace Assets.Source.Items
 
             _equipment.Configure(itemTypes);
         }
-
+        
+        /*
         public bool IsKeyPresent()
         {
             foreach (Item item in _items[ItemType.Miscellaneous])
@@ -102,6 +111,7 @@ namespace Assets.Source.Items
             }
             return false;
         }
+        */
 
         public Dictionary<ItemType, List<Item>> GetInventoryDict()
         {

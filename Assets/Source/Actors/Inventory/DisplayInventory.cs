@@ -137,13 +137,13 @@ namespace Source.Actors.Inventory
             {
                 itemActor.Item = item;
                 itemActor.SetSprite(itemActor.Item.DefaultSpriteId);
-                itemActor.transform.localPosition = new Vector3(position.x, position.y, -2);
+                itemActor.transform.localPosition = new Vector3(position.x, position.y, -2.5f);
                 go.transform.localScale = new Vector3(2f, 2f, 0f);
             }
             else if (component is InventoryBackground actor)
             {
                 go.transform.localScale = actor.vector;
-                go.transform.localPosition = new Vector3(position.x, position.y, -0.9f);
+                go.transform.localPosition = new Vector3(position.x, position.y, -1.9f);
             }
             else if (component is InventoryFrame field)
                 go.transform.localScale = field.vector;

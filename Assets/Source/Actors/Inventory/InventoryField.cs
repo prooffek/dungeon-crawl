@@ -8,7 +8,7 @@ namespace Source.Actors.Inventory
     public abstract class InventoryField : Actor
     {
         public override string DefaultName => "InventoryField";
-        public override int Z => -1;
+        public override int Z => -2;
         public Vector3 vector;
     }
 }

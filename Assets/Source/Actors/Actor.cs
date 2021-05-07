@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using Assets.Source.Actors;
 using DungeonCrawl.Core;
 using UnityEngine;
@@ -30,9 +31,9 @@ namespace DungeonCrawl.Actors
             SetSprite(DefaultSpriteId);
         }
 
-        internal void HandleItem(object itemActor)
+        public virtual void HandleItem(object itemActor)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         private void Update()

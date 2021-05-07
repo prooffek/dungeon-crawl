@@ -18,11 +18,10 @@ namespace Assets.Source.Items
 
         public virtual int Z => 0;
 
-        public virtual bool OnCollision(Actor anotherActor)
+        public virtual void OnCollision(Actor anotherActor)
         {
-            anotherActor.HandleItem(this);
-
-            return true;
+            // TODO WHY? Allows to execute additional logic on collision. The problem is this will call the base Actor class' virtual functions even if they're
+            // overriden in dervided instance of gameObject's component
         }
 
         // Allows to execute additional code before this is picked up

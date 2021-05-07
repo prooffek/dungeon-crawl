@@ -88,6 +88,11 @@ namespace DungeonCrawl.Actors.Characters
                 HidePickUpInfo();
                 Position = targetPosition;
                 CameraController.Singleton.CenterCameraOnPlayer();
+                if (this is Player player)
+                {
+                    AudioSource audioSource = player.GetComponent<AudioSource>();
+                    audioSource.Play();
+                }
             }
             else
             {
@@ -133,7 +138,6 @@ namespace DungeonCrawl.Actors.Characters
         {
             DisplayPickUpInfo(itemActor.Item.DefaultName);
             _currentItemActor = itemActor;
-
         }
 
         public void Use(Item item)
@@ -157,7 +161,7 @@ namespace DungeonCrawl.Actors.Characters
 
             itemActor.HandlePickUp(this);
             _inventory.Add(itemActor.Item);
-            // _inventory.Use(this, itemActor.Item); // can use this to debug equipment and inventory
+            // _inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
             ActorManager.Singleton.DestroyActor(itemActor);
         }
         void ClearCurrentItemActor()

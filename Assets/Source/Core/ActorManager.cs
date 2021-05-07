@@ -145,7 +145,12 @@ namespace DungeonCrawl.Core
 
             _allActors.Add(component);
 
-            //if (component is Player player) Player = player;
+            if (component is Player player)
+            {
+                AudioSource audioSource = go.AddComponent<AudioSource>();
+                audioSource.clip = Resources.Load("footstep") as AudioClip;
+                audioSource.playOnAwake = false;
+            }
 
             return component;
         }
