@@ -1,4 +1,5 @@
-﻿using DungeonCrawl.Actors.Characters;
+﻿using Assets.Source.Core;
+using DungeonCrawl.Actors.Characters;
 using UnityEngine;
 
 namespace DungeonCrawl.Actors.Static
@@ -15,6 +16,7 @@ namespace DungeonCrawl.Actors.Static
             
             if (isKeyPresent) anotherActor.IsNextMap();
 
+            anotherActor.KeyNeededInfo();
             return isKeyPresent;
         }
 

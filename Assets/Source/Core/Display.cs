@@ -13,7 +13,7 @@ namespace Assets.Source.Core
            string statsTable = $@"
 
     
-    HP : current: {hp} / max: {max_hp}
+    HP : {hp} / {max_hp}
     MP : {mp}
     ATT: {att}
     DEF: {def}

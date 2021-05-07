@@ -15,7 +15,7 @@ namespace DungeonCrawl.Actors.Characters
         public int CharacterLevel { get; private set; }
 
         [SerializeField]
-        int _attackPoints = 10;
+        int _attackPoints = 1;
         public int AttackPoints
         {
             get
@@ -28,7 +28,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
         [SerializeField]
-        int _healthPoints = 100;
+        int _healthPoints = 50;
         public int HealthPoints
         {
             get
@@ -41,7 +41,7 @@ namespace DungeonCrawl.Actors.Characters
             }
         }
 
-        int _maxHealthPoints = 100;
+        int _maxHealthPoints = 50;
         public int MaxHealthPoints
         {
             get

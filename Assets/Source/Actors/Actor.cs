@@ -77,7 +77,7 @@ namespace DungeonCrawl.Actors
         /// <returns>true if actor can walk on this position, false if not</returns>
         public virtual bool OnCollision(Actor anotherActor)
         {
-            // All actors are passable by default
+            // All actors are not passable by default
             return false;
         }
 
@@ -126,6 +126,10 @@ namespace DungeonCrawl.Actors
         }
 
         public virtual void IsNextMap()
+        {
+        }
+
+        public virtual void KeyNeededInfo()
         {
         }
     }

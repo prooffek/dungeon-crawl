@@ -86,7 +86,9 @@ namespace DungeonCrawl.Actors.Characters
                 // No obstacle found, just move
                 ClearCurrentItemActor();
                 HidePickUpInfo();
+                HideKeyNeededInfo();
                 Position = targetPosition;
+                DecreasePlayerStamina();
                 CameraController.Singleton.CenterCameraOnPlayer();
                 if (this is Player player)
                 {
@@ -100,10 +102,20 @@ namespace DungeonCrawl.Actors.Characters
                 {
                     // Allowed to move
                     Position = targetPosition;
+                    DecreasePlayerStamina();
                     CameraController.Singleton.CenterCameraOnPlayer();
+
                 }
             }
 
+            
+
+            
+        }
+
+        private void DecreasePlayerStamina()
+        {
+            //Decrease stamina in every movement
             if (this.StaminaPoints <= 0)
             {
                 this.HealthPoints -= 1;
@@ -168,6 +180,16 @@ namespace DungeonCrawl.Actors.Characters
         void HidePickUpInfo()
         {
             UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
+        }
+
+        public override void KeyNeededInfo()
+        {
+            UserInterface.Singleton.SetText("You need a key \n in order to open this door!", UserInterface.TextPosition.TopLeft);
+        }
+
+        void HideKeyNeededInfo()
+        {
+            UserInterface.Singleton.SetText("", UserInterface.TextPosition.TopLeft);
         }
 
         void DisplayCantDropItemInfo()
