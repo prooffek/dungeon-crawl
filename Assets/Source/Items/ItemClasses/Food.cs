@@ -9,7 +9,7 @@ namespace Assets.Source.Items
         public override bool IsEquippable => false;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
-        public int NutritiousPoints { get; }
+        public int NutritiousPoints { get; protected set; }
         public override int MaxDurability { get; }
         public override int CurrentDurability { get; set; }
 

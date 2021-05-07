@@ -7,7 +7,7 @@ namespace Assets.Source.Items
 {
     public class Equipment
     {
-        Dictionary<ItemType, Item[]> _items = new Dictionary<ItemType, Item[]>();
+        readonly Dictionary<ItemType, Item[]> _items = new Dictionary<ItemType, Item[]>();
 
         public Item[] this[ItemType type]
         {
