@@ -35,7 +35,7 @@ namespace Assets.Source.Items
         {
             if (item.IsEquippable)
             {
-                _equipment.EquipItem(player, item);
+                _equipment.EquipOrTakeOffItem(player, item);
             }
             else
             {
