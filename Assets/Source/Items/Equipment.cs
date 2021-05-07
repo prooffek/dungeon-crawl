@@ -52,7 +52,7 @@ namespace Assets.Source.Items
             }
         }
 
-        public void EquipOrTakeOffItem(Player player, Item item)
+        public void EquipOrTakeOffItem(Player player, Item item) // TODO would you change whitespace or refactor this method?
         {
             ref var slot = ref GetEmptyOrFirstSlot(item.ItemType);
 
@@ -64,14 +64,18 @@ namespace Assets.Source.Items
             if (IsNotEmpty(slot))
             {
                 slot.ActionOnUse(player);
+
                 if (ReferenceEquals(slot, item))
+                {
                     slot = null;
+                }
                 else
                 {
                     slot = item;
                     slot.ActionOnUse(player);
                 }
             }
+
             else
             {
                 slot = item;
