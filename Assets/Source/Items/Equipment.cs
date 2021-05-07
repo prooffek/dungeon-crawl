@@ -26,39 +26,6 @@ namespace Assets.Source.Items
             }
         }
 
-        public void EquipOrTakeOffItem(Player player, Item item)
-        {
-
-            ref var slot = ref GetEmptyOrFirstSlot(item.ItemType);
-            slot = OverwriteIfAlreadyEquipped(ref slot, item);
-
-            if (IsEmpty(slot))
-            {
-                slot = item;
-                slot.ActionOnUse(player);
-            }
-            else
-            {
-                slot.ActionOnUse(player);
-                if (ReferenceEquals(slot, item))
-                    slot = null;
-                else
-                {
-                    slot = item;
-                    slot.ActionOnUse(player);
-                }
-            }
-        }
-
-        private ref Item OverwriteIfAlreadyEquipped(ref Item slot, Item item)
-        {
-            var array = _items[item.ItemType];
-
-            if (array.ToList().Contains(item))
-                return ref array[Array.IndexOf(array, item)];
-            return ref slot;
-        }
-
         /// <summary>
         /// Here you can configure maximum amount of equippable items by type
         /// </summary>
@@ -85,7 +52,52 @@ namespace Assets.Source.Items
             }
         }
 
-        bool IsEmpty(Item item) => (item is null);
+        public void EquipOrTakeOffItem(Player player, Item item)
+        {
+            ref var slot = ref GetEmptyOrFirstSlot(item.ItemType);
+
+            if (AlreadyEquipped(item))
+            {
+                slot = ref GetEquippedItemSlot(item);
+            }
+
+            if (IsNotEmpty(slot))
+            {
+                slot.ActionOnUse(player);
+                if (ReferenceEquals(slot, item))
+                    slot = null;
+                else
+                {
+                    slot = item;
+                    slot.ActionOnUse(player);
+                }
+            }
+            else
+            {
+                slot = item;
+                slot.ActionOnUse(player);
+            }
+        }
+
+        ref Item GetEquippedItemSlot(Item item)
+        {
+            Item[] items = _items[item.ItemType];
+            return ref items[GetItemIndex(item)];
+        }
+
+        int GetItemIndex(Item item)
+        {
+            Item[] items = _items[item.ItemType];
+            return Array.IndexOf(items, Array.Find(items, element => ReferenceEquals(element, item)));
+        }
+
+        bool AlreadyEquipped(Item item)
+        {
+            return Array.Exists(_items[item.ItemType], element => ReferenceEquals(element, item));
+        }
+
+
+        bool IsNotEmpty(Item item) => !(item is null);
 
         ref Item GetEmptyOrFirstSlot(ItemType type)
         {
