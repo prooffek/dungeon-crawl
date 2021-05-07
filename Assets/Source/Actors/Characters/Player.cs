@@ -13,7 +13,6 @@ namespace DungeonCrawl.Actors.Characters
     {
         [SerializeField]
         ItemActor _currentItemActor;
-        [SerializeField]
 
         // do zmiany - roboczo
         Inventory _inventory { get; set; } = new Inventory();

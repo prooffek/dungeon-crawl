@@ -15,6 +15,8 @@ namespace Assets.Source.Items.Foods
             Inteligence = _randomBoolian ? 3 : -2;
         }
 
+        private readonly bool _randomBoolean = GetRandomBoolean();
+
         public override void ActionOnUse(Player player)
         {
             player.StaminaPoints += NutritiousPoints;
