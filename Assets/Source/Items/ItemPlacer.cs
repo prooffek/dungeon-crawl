@@ -1,10 +1,5 @@
 using System.Collections.Generic;
 using Assets.Source.Actors;
-using Assets.Source.Items.Armours;
-using Assets.Source.Items.Books;
-using Assets.Source.Items.Foods;
-using Assets.Source.Items.Swords;
-using Assets.Source.Items.Wands;
 using DungeonCrawl.Core;
 using UnityEngine;
 using static DungeonCrawl.Utilities;

@@ -1,10 +1,6 @@
 using System.Collections.Generic;
-using Assets.Source.Items.Armours;
 using Assets.Source.Items.Books;
 using Assets.Source.Items.Foods;
-using Assets.Source.Items.Potions;
-using Assets.Source.Items.Swords;
-using Assets.Source.Items.Wands;
 
 namespace Assets.Source.Items
 {
@@ -15,48 +11,48 @@ namespace Assets.Source.Items
         {
             new List<Item>()
             {
-                new Apple(),
-                new Fish(),
-                new Meat(),
+                new Food("apple"),
+                new Food("fish"),
+                new Food("meat"),
                 new Mushroom(),
             },
 
             new List<Item>()
             {
-                new PeasantsAndMasters(),
+                new Book("poem"),
                 new KnightsTraining(),
                 new AncientMedicine(),
-                new PoemOfTheFeudalism(),
+                new Book("peasant"),
             },
 
             new List<Item>()
             {
-                new SoldiersSword(),
-                new KnightSword(),
-                new KingsSwordOfPower(),
-                new EthernalSwordOfDestruction(),
+                new Sword("soldier"),
+                new Sword("knight"),
+                new Sword("kings"),
+                new Sword("ethernal"),
             },
 
             new List<Item>()
             {
-                new AdeptsWand(),
-                new DruidsWand(),
-                new ArchmagesWandOfWisdom(),
-                new GreatWandOfAnnihilation(),
-                new SailorMoonWand(),
+                new Wand("adept"),
+                new Wand("druid"),
+                new Wand("aechmage"),
+                new Wand("great"),
+                new Wand("sailor moon"),
             },
 
             new List<Item>()
             {
-                new BasicArmour(),
-                new KnightArmour(),
-                new KingsArmourOfJustice(),
-                new EthernalArmourOfProtection(),
+                new Armour("basic"),
+                new Armour("knight"),
+                new Armour("king"),
+                new Armour("ethernal"),
             },
 
             new List<Item>()
             {
-                new HealthPotion(),
+                new Potion("health"),
             }
 
         };

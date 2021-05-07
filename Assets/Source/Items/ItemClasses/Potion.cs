@@ -2,23 +2,35 @@ using DungeonCrawl.Actors.Characters;
 
 namespace Assets.Source.Items
 {
-    public abstract class Potion : Item
+    public class Potion : Item
     {
         public override ItemType ItemType => ItemType.Consumable;
         public override bool IsEquippable => false;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
-        public abstract int HealthPoints { get; }
+        public int HealthPoints { get; }
         public override int MaxDurability { get; }
         public override int CurrentDurability { get; set; }
 
-        
+        public Potion(string type)
+        {
+            switch (type)
+            {
+                case "health":
+                    DefaultSpriteId = 657;
+                    DefaultName = "Health Potion";
+                    HealthPoints = 30;
+                    MaxDurability = 1;
+                    CurrentDurability = 1;
+                    break;
+            }
+        }
+
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
             player.HealthPoints += this.HealthPoints;
             DecreaseItemDurability();
-            //DestroyIffJunk(player);
         }
     }
 }

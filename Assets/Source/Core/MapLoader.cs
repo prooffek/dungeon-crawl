@@ -5,7 +5,6 @@ using System;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Assets.Source.Core;
-using Assets.Source.Items.Swords;
 using Assets.Source.Items;
 using Assets.Source.Actors;
 

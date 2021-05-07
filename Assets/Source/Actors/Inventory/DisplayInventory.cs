@@ -31,8 +31,9 @@ namespace Source.Actors.Inventory
             GetPositionsList();
             GenerateItemsDict();
             CreateInventoryFields();
-            MarkSelected();
             CreateInventoryItems();
+            MarkSelectedField();
+            DescribeSelectedItem();
         }
 
         public static void HideInventory()
@@ -56,15 +57,18 @@ namespace Source.Actors.Inventory
         {
             foreach (var position in _positionsList)
             {
-                SpawnInventory<InventoryFrame>(position);
                 SpawnInventory<InventoryBackground>(position);
+                SpawnInventory<InventoryFrame>(position);
             }
         }
 
-        private static void MarkSelected()
+        private static void MarkSelectedField()
         {
             SpawnInventory<SelectedInventoryField>(_positionsList[_selectedField]);
-            
+        }
+
+        private static void DescribeSelectedItem()
+        {
             if (_itemsInInventoryCounter.Count > _selectedField )
             {
                 Item selectedItem = _itemsInInventoryCounter.ElementAt(_selectedField).Key;
@@ -95,15 +99,13 @@ namespace Source.Actors.Inventory
             }
         }
 
-        private static bool AddToInventoryDict(Item item)
+        private static void AddToInventoryDict(Item item)
         {
             if (_itemsInInventoryCounter.Keys.Contains(item))
             {
                 _itemsInInventoryCounter[item]++;
-                return true;
             }
             _itemsInInventoryCounter[item] = 1;
-            return false;
         }
         
         private static void GetPositionsList()
@@ -130,28 +132,6 @@ namespace Source.Actors.Inventory
 
             _itemsList.Add(component);
         }
-
-        /*
-        private static void ManageItemsToSpawn(Actor component, Item item, (int x, int y) position, GameObject go)
-        {
-            if (component is ItemActor itemActor) // && item != null)
-            {
-                itemActor.Item = item;
-                itemActor.SetSprite(itemActor.Item.DefaultSpriteId);
-                itemActor.transform.localPosition = new Vector3(position.x, position.y, -2.5f);
-                go.transform.localScale = new Vector3(2f, 2f, 0f);
-            }
-            else if (component is InventoryBackground actor)
-            {
-                go.transform.localScale = actor.vector;
-                go.transform.localPosition = new Vector3(position.x, position.y, -1.9f);
-            }
-            else if (component is InventoryFrame field)
-                go.transform.localScale = field.vector;
-            else if (component is SelectedInventoryField selectedField)
-                go.transform.localScale = selectedField.vector;
-        }
-        */
 
         public static void MoveThroughInventory()
         {
