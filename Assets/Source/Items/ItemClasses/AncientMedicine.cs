@@ -7,7 +7,7 @@ namespace Assets.Source.Items.Books
     {
         private int bonusPoints = 5;
 
-        public AncientMedicine() : base("medicine")
+        public AncientMedicine() : base(BooksEnum.AncientMedicine.ToString())
         {
         }
         

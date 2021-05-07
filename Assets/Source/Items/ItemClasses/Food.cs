@@ -3,13 +3,20 @@ using static DungeonCrawl.Utilities;
 
 namespace Assets.Source.Items
 {
+    enum FoodEnum
+    {
+        apple,
+        fish,
+        meat,
+        mushroom
+    }
     public class Food : Item
     {
         public override ItemType ItemType => ItemType.Consumable;
         public override bool IsEquippable => false;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
-        public int NutritiousPoints { get; }
+        public int NutritiousPoints { get; protected set; }
         public override int MaxDurability { get; }
         public override int CurrentDurability { get; set; }
 
@@ -39,7 +46,7 @@ namespace Assets.Source.Items
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "mashroom":
+                case "mushroom":
                     DefaultSpriteId = 973;
                     DefaultName = "Mushroom";
                     MaxDurability = 1;

@@ -11,48 +11,48 @@ namespace Assets.Source.Items
         {
             new List<Item>()
             {
-                new Food("apple"),
-                new Food("fish"),
-                new Food("meat"),
+                new Food(FoodEnum.apple.ToString()),
+                new Food(FoodEnum.fish.ToString()),
+                new Food(FoodEnum.meat.ToString()),
                 new Mushroom(),
             },
 
             new List<Item>()
             {
-                new Book("poem"),
+                new Book(BooksEnum.PoemOfTheFeudalism.ToString()),
+                new Book(BooksEnum.PeasantsAndMasters.ToString()),
                 new KnightsTraining(),
                 new AncientMedicine(),
-                new Book("peasant"),
             },
 
             new List<Item>()
             {
-                new Sword("soldier"),
-                new Sword("knight"),
-                new Sword("kings"),
-                new Sword("ethernal"),
+                new Sword(SwordsEnum.SoldiersSword.ToString()),
+                new Sword(SwordsEnum.KnightSword.ToString()),
+                new Sword(SwordsEnum.KingsSwordOfPower.ToString()),
+                new Sword(SwordsEnum.EthernalSwordOfDestruction.ToString()),
             },
 
             new List<Item>()
             {
-                new Wand("adept"),
-                new Wand("druid"),
-                new Wand("aechmage"),
-                new Wand("great"),
-                new Wand("sailor moon"),
+                new Wand(WandsEnum.AdeptsWand.ToString()),
+                new Wand(WandsEnum.DruidsWand.ToString()),
+                new Wand(WandsEnum.ArchmagesWandOfWisdom.ToString()),
+                new Wand(WandsEnum.GreatWandOfAnnihilation.ToString()),
+                new Wand(WandsEnum.GreatWandOfAnnihilation.ToString()),
             },
 
             new List<Item>()
             {
-                new Armour("basic"),
-                new Armour("knight"),
-                new Armour("king"),
-                new Armour("ethernal"),
+                new Armour(ArmourEnum.BasicArmour.ToString()),
+                new Armour(ArmourEnum.KnightArmour.ToString()),
+                new Armour(ArmourEnum.KingsArmourOfJustice.ToString()),
+                new Armour(ArmourEnum.EthernalArmourOfProtection.ToString()),
             },
 
             new List<Item>()
             {
-                new Potion("health"),
+                new Potion(PotionsEnum.healthPotion.ToString()),
             }
 
         };

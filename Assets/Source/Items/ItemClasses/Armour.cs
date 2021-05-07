@@ -2,6 +2,14 @@ using DungeonCrawl.Actors.Characters;
 
 namespace Assets.Source.Items
 {
+    enum ArmourEnum
+    {
+        BasicArmour,
+        KnightArmour,
+        KingsArmourOfJustice,
+        EthernalArmourOfProtection
+    }
+    
     public class Armour : Item
     {
         public override ItemType ItemType => ItemType.Armour;
@@ -17,28 +25,28 @@ namespace Assets.Source.Items
         {
             switch (type)
             {
-                case "basic":
+                case "BasicArmour":
                     DefaultSpriteId = 84;
                     DefaultName = "Basic Armour";
                     DefencePoints = 1;
                     MaxDurability = 20;
                     CurrentDurability = 20;
                     break;
-                case "knight":
+                case "KnightArmour":
                     DefaultSpriteId = 79;
                     DefaultName = "Knight Armour";
                     DefencePoints = 3;
                     MaxDurability = 23;
                     CurrentDurability = 23;
                     break;
-                case "kings":
+                case "KingsArmourOfJustice":
                     DefaultSpriteId = 91;
                     DefaultName = "King's Armour of Justice";
                     DefencePoints = 5;
                     MaxDurability = 27;
                     CurrentDurability = 27;
                     break;
-                case "ethernal":
+                case "EthernalArmourOfProtection":
                     DefaultSpriteId = 83;
                     DefaultName = "Ethernal Armour of Protection";
                     DefencePoints = 10;

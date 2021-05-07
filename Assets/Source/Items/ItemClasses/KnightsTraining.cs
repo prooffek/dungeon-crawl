@@ -7,7 +7,7 @@ namespace Assets.Source.Items.Books
     {
         private int bonusPoints = 5;
         
-        public KnightsTraining() : base("knight")
+        public KnightsTraining() : base(BooksEnum.KnightsTraining.ToString())
         {
         }
         
