@@ -1,5 +1,7 @@
 ﻿using DungeonCrawl.Actors;
 using Assets.Source.Items;
+using Source.Actors.Inventory;
+using UnityEngine;
 
 namespace Assets.Source.Actors
 {
@@ -29,6 +31,12 @@ namespace Assets.Source.Actors
 
         public override int Z => Item is null ? -1 : Item.Z;
 
-
+        public override void ManageItemsToSpawn(Actor component, Item item, (int x, int y) position, GameObject go)
+        {
+            Item = item;
+            SetSprite(Item.DefaultSpriteId);
+            transform.localPosition = new Vector3(position.x, position.y, -2.5f);
+            go.transform.localScale = new Vector3(2f, 2f, 0f);
+        }
     }
 }

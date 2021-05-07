@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using Assets.Source.Actors;
+using Assets.Source.Items;
 using DungeonCrawl.Core;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
@@ -111,6 +112,10 @@ namespace DungeonCrawl.Actors
         public abstract string DefaultName { get; }
 
         public virtual void HandleItem(ItemActor itemActor)
+        {
+        }
+
+        public virtual void ManageItemsToSpawn(Actor component, Item item, (int x, int y) position, GameObject go)
         {
         }
 

@@ -126,11 +126,12 @@ namespace Source.Actors.Inventory
             go.name = component.DefaultName;
             component.Position = position;
             
-            ManageItemsToSpawn(component, item, position, go);
+            component.ManageItemsToSpawn(component, item, position, go);
 
             _itemsList.Add(component);
         }
 
+        /*
         private static void ManageItemsToSpawn(Actor component, Item item, (int x, int y) position, GameObject go)
         {
             if (component is ItemActor itemActor) // && item != null)
@@ -150,6 +151,7 @@ namespace Source.Actors.Inventory
             else if (component is SelectedInventoryField selectedField)
                 go.transform.localScale = selectedField.vector;
         }
+        */
 
         public static void MoveThroughInventory()
         {
