@@ -1,6 +1,7 @@
 ﻿using DungeonCrawl.Actors.Characters;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Source.Items
@@ -25,13 +26,37 @@ namespace Assets.Source.Items
             }
         }
 
-        public void EquipItem(Player player, Item item) // TODO how to use whitespace inside this function to make it most readable?
+        public void EquipOrTakeOffItem(Player player, Item item)
         {
-            ref var slot = ref GetEmptyOrFirstSlot(item.ItemType);
 
-            if (IsNotEmpty(slot)) slot.ActionOnUse(player);
-            slot = item;
-            slot.ActionOnUse(player);
+            ref var slot = ref GetEmptyOrFirstSlot(item.ItemType);
+            slot = OverwriteIfAlreadyEquipped(ref slot, item);
+
+            if (IsEmpty(slot))
+            {
+                slot = item;
+                slot.ActionOnUse(player);
+            }
+            else
+            {
+                slot.ActionOnUse(player);
+                if (ReferenceEquals(slot, item))
+                    slot = null;
+                else
+                {
+                    slot = item;
+                    slot.ActionOnUse(player);
+                }
+            }
+        }
+
+        private ref Item OverwriteIfAlreadyEquipped(ref Item slot, Item item)
+        {
+            var array = _items[item.ItemType];
+
+            if (array.ToList().Contains(item))
+                return ref array[Array.IndexOf(array, item)];
+            return ref slot;
         }
 
         /// <summary>
@@ -60,7 +85,7 @@ namespace Assets.Source.Items
             }
         }
 
-        bool IsNotEmpty(Item item) => !(item is null);
+        bool IsEmpty(Item item) => (item is null);
 
         ref Item GetEmptyOrFirstSlot(ItemType type)
         {
