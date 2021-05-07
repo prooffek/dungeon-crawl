@@ -17,7 +17,7 @@ namespace Source.Actors.Inventory
         private static Dictionary<Item, int> _itemsInInventoryCounter = new Dictionary<Item, int>();
         private static int _selectedField = 0;
 
-        public static void InventoryDesplayManagement(bool isInventoryOpen)
+        public static void InventoryDisplayManagement(bool isInventoryOpen)
         {
             HideInventory();
             if (isInventoryOpen)
@@ -90,6 +90,7 @@ namespace Source.Actors.Inventory
 
         private static void GenerateItemsDict()
         {
+            var items = ActorManager.Singleton.Player.GetItemsInInventory();
             foreach (var itemsList in ActorManager.Singleton.Player.GetItemsInInventory())
             {
                 foreach (var item in itemsList)
@@ -102,10 +103,9 @@ namespace Source.Actors.Inventory
         private static void AddToInventoryDict(Item item)
         {
             if (_itemsInInventoryCounter.Keys.Contains(item))
-            {
                 _itemsInInventoryCounter[item]++;
-            }
-            _itemsInInventoryCounter[item] = 1;
+
+            else _itemsInInventoryCounter[item] = 1;
         }
         
         private static void GetPositionsList()

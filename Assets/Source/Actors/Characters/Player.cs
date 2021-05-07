@@ -68,8 +68,8 @@ namespace DungeonCrawl.Actors.Characters
                     ClearCurrentItemActor();
                 }
             }
-
-            InventoryDesplayManagement(_isInventoryOpen);
+            
+            InventoryDisplayManagement(_isInventoryOpen);
 
             GoToNextMap();
 
