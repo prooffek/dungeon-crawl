@@ -3,6 +3,13 @@ using static DungeonCrawl.Utilities;
 
 namespace Assets.Source.Items.ItemClasses
 {
+    enum FoodEnum
+    {
+        apple,
+        fish,
+        meat,
+        mushroom
+    }
     public class Food : Item
     {
         public override ItemType ItemType => ItemType.Consumable;
@@ -39,7 +46,7 @@ namespace Assets.Source.Items.ItemClasses
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "mashroom":
+                case "mushroom":
                     DefaultSpriteId = 973;
                     DefaultName = "Mushroom";
                     MaxDurability = 1;

@@ -3,6 +3,13 @@ using static DungeonCrawl.Utilities;
 
 namespace Assets.Source.Items.ItemClasses
 {
+    enum BooksEnum
+    {
+        PoemOfTheFeudalism,
+        PeasantsAndMasters,
+        AncientMedicine,
+        KnightsTraining
+    }
     public class Book : Item
     {
         public override ItemType ItemType => ItemType.Consumable;
@@ -18,28 +25,28 @@ namespace Assets.Source.Items.ItemClasses
         {
             switch (type)
             {
-                case "poem":
+                case "PoemOfTheFeudalism":
                     DefaultSpriteId = 751;
                     DefaultName = "Poem of the Feudalism";
                     InteligencePoints = 1;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "peasant":
+                case "PeasantsAndMasters":
                     DefaultSpriteId = 751;
                     DefaultName = "Peasants and Masters";
                     InteligencePoints = 2;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "medicine":
+                case "AncientMedicine":
                     DefaultSpriteId = 752;
                     DefaultName = "Ancient Medicine";
                     InteligencePoints = 2;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "knight":
+                case "KnightsTraining":
                     DefaultSpriteId = 752;
                     DefaultName = "Knight's Training";
                     InteligencePoints = 2;

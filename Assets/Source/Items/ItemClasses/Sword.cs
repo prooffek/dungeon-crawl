@@ -3,6 +3,13 @@ using DungeonCrawl.Core;
 
 namespace Assets.Source.Items.ItemClasses
 {
+    public enum SwordsEnum
+    {
+        SoldiersSword,
+        KnightSword,
+        KingsSwordOfPower,
+        EthernalSwordOfDestruction
+    }
     public class Sword : Item, IEquippable
     {
         public override ItemType ItemType => ItemType.Weapon;
@@ -15,32 +22,32 @@ namespace Assets.Source.Items.ItemClasses
         public int DamagePoints { get; }
         
     
-        public Sword(string type)
+        public Sword(SwordsEnum type)
         {
             switch (type)
             {
-                case "soldier":
+                case SwordsEnum.SoldiersSword:
                     DefaultSpriteId = 320;
                     DefaultName = "Soldier's Sword";
                     DamagePoints = 1;
                     MaxDurability = 50;
                     CurrentDurability = 50;
                     break;
-                case "knight":
+                case SwordsEnum.KnightSword:
                     DefaultSpriteId = 416;
                     DefaultName = "Knight Sword";
                     DamagePoints = 4;
                     MaxDurability = 30;
                     CurrentDurability = 30;
                     break;
-                case "kings":
+                case SwordsEnum.KingsSwordOfPower:
                     DefaultSpriteId = 417;
                     DefaultName = "King's Sword of Power";
                     DamagePoints = 10;
                     MaxDurability = 15;
                     CurrentDurability = 15;
                     break;
-                case "ethernal":
+                case SwordsEnum.EthernalSwordOfDestruction:
                     DefaultSpriteId = 464;
                     DefaultName = "Ethernal Sword of Destruction";
                     DamagePoints = 15;
