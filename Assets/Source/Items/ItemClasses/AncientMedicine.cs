@@ -4,9 +4,9 @@ namespace Assets.Source.Items.ItemClasses
 {
     public class AncientMedicine : Book
     {
-        private int bonusPoints = 5;
+        private readonly int bonusPoints = 5;
 
-        public AncientMedicine() : base(BooksEnum.AncientMedicine.ToString())
+        public AncientMedicine() : base(BooksEnum.AncientMedicine)
         {
         }
         

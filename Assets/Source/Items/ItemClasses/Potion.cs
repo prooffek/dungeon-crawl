@@ -2,9 +2,9 @@ using DungeonCrawl.Actors.Characters;
 
 namespace Assets.Source.Items.ItemClasses
 {
-    enum PotionsEnum
+    public enum PotionsEnum
     {
-        healthPotion
+        HealthPotion
     }
     public class Potion : Item
     {
@@ -16,11 +16,11 @@ namespace Assets.Source.Items.ItemClasses
         public override int MaxDurability { get; }
         public override int CurrentDurability { get; set; }
 
-        public Potion(string type)
+        public Potion(PotionsEnum type)
         {
             switch (type)
             {
-                case "healthPotion":
+                case PotionsEnum.HealthPotion:
                     DefaultSpriteId = 657;
                     DefaultName = "Health Potion";
                     HealthPoints = 30;

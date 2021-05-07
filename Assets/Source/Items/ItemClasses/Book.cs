@@ -3,7 +3,7 @@ using static DungeonCrawl.Utilities;
 
 namespace Assets.Source.Items.ItemClasses
 {
-    enum BooksEnum
+    public enum BooksEnum
     {
         PoemOfTheFeudalism,
         PeasantsAndMasters,
@@ -21,32 +21,32 @@ namespace Assets.Source.Items.ItemClasses
         public override int CurrentDurability { get; set; }
 
         
-        public Book(string type)
+        public Book(BooksEnum type)
         {
             switch (type)
             {
-                case "PoemOfTheFeudalism":
+                case BooksEnum.PoemOfTheFeudalism:
                     DefaultSpriteId = 751;
                     DefaultName = "Poem of the Feudalism";
                     InteligencePoints = 1;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "PeasantsAndMasters":
+                case BooksEnum.PeasantsAndMasters:
                     DefaultSpriteId = 751;
                     DefaultName = "Peasants and Masters";
                     InteligencePoints = 2;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "AncientMedicine":
+                case BooksEnum.AncientMedicine:
                     DefaultSpriteId = 752;
                     DefaultName = "Ancient Medicine";
                     InteligencePoints = 2;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "KnightsTraining":
+                case BooksEnum.KnightsTraining:
                     DefaultSpriteId = 752;
                     DefaultName = "Knight's Training";
                     InteligencePoints = 2;

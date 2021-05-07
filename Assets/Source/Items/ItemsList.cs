@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-using Assets.Source.Items.Books;
-using Assets.Source.Items.Foods;
+using Assets.Source.Items.ItemClasses;
 
 namespace Assets.Source.Items
 {
@@ -11,48 +10,48 @@ namespace Assets.Source.Items
         {
             new List<Item>()
             {
-                new Food(FoodEnum.apple.ToString()),
-                new Food(FoodEnum.fish.ToString()),
-                new Food(FoodEnum.meat.ToString()),
+                new Food(FoodEnum.Apple),
+                new Food(FoodEnum.Fish),
+                new Food(FoodEnum.Meat),
                 new Mushroom(),
             },
 
             new List<Item>()
             {
-                new Book(BooksEnum.PoemOfTheFeudalism.ToString()),
-                new Book(BooksEnum.PeasantsAndMasters.ToString()),
+                new Book(BooksEnum.PoemOfTheFeudalism),
+                new Book(BooksEnum.PeasantsAndMasters),
                 new KnightsTraining(),
                 new AncientMedicine(),
             },
 
             new List<Item>()
             {
-                new Sword(SwordsEnum.SoldiersSword.ToString()),
-                new Sword(SwordsEnum.KnightSword.ToString()),
-                new Sword(SwordsEnum.KingsSwordOfPower.ToString()),
-                new Sword(SwordsEnum.EthernalSwordOfDestruction.ToString()),
+                new Sword(SwordsEnum.SoldiersSword),
+                new Sword(SwordsEnum.KnightSword),
+                new Sword(SwordsEnum.KingsSwordOfPower),
+                new Sword(SwordsEnum.EthernalSwordOfDestruction),
             },
 
             new List<Item>()
             {
-                new Wand(WandsEnum.AdeptsWand.ToString()),
-                new Wand(WandsEnum.DruidsWand.ToString()),
-                new Wand(WandsEnum.ArchmagesWandOfWisdom.ToString()),
-                new Wand(WandsEnum.GreatWandOfAnnihilation.ToString()),
-                new Wand(WandsEnum.GreatWandOfAnnihilation.ToString()),
+                new Wand(WandsEnum.AdeptsWand),
+                new Wand(WandsEnum.DruidsWand),
+                new Wand(WandsEnum.ArchmagesWandOfWisdom),
+                new Wand(WandsEnum.GreatWandOfAnnihilation),
+                new Wand(WandsEnum.GreatWandOfAnnihilation),
             },
 
             new List<Item>()
             {
-                new Armour(ArmourEnum.BasicArmour.ToString()),
-                new Armour(ArmourEnum.KnightArmour.ToString()),
-                new Armour(ArmourEnum.KingsArmourOfJustice.ToString()),
-                new Armour(ArmourEnum.EthernalArmourOfProtection.ToString()),
+                new Armour(ArmourEnum.BasicArmour),
+                new Armour(ArmourEnum.KnightArmour),
+                new Armour(ArmourEnum.KingsArmourOfJustice),
+                new Armour(ArmourEnum.EthernalArmourOfProtection),
             },
 
             new List<Item>()
             {
-                new Potion(PotionsEnum.healthPotion.ToString()),
+                new Potion(PotionsEnum.HealthPotion),
             }
 
         };

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Assets.Source.Actors;
+using Assets.Source.Items.ItemClasses;
 using DungeonCrawl.Core;
-using UnityEngine;
 using static DungeonCrawl.Utilities;
 using Random = System.Random;
 

@@ -5,9 +5,9 @@ namespace Assets.Source.Items.ItemClasses
 {
     public class KnightsTraining : Book
     {
-        private int bonusPoints = 5;
+        private readonly int bonusPoints = 5;
         
-        public KnightsTraining() : base(BooksEnum.KnightsTraining.ToString())
+        public KnightsTraining() : base(BooksEnum.KnightsTraining)
         {
         }
         

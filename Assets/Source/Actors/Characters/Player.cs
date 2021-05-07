@@ -15,7 +15,7 @@ namespace DungeonCrawl.Actors.Characters
         ItemActor _currentItemActor;
 
         // do zmiany - roboczo
-        Inventory _inventory { get; set; } = new Inventory();
+        Inventory Inventory { get; set; } = new Inventory();
 
         private bool WentToNextMap;
 
@@ -127,11 +127,7 @@ namespace DungeonCrawl.Actors.Characters
 
 
 
-        public override bool HasKey() => _inventory.IsKeyPresent();
-        //{
-        //    bool isKeyPresent = false;
-        //    return isKeyPresent;
-        //}
+        public override bool HasKey() => Inventory.IsKeyPresent();
 
         public override void HandleItem(ItemActor itemActor)
         {
@@ -141,17 +137,17 @@ namespace DungeonCrawl.Actors.Characters
 
         public void Use(Item item)
         {
-            _inventory.Use(this, item);
+            Inventory.Use(this, item);
         }
 
         public void DeleteFromInventory(Item item)
         {
-            _inventory.Delete(item);
+            Inventory.Delete(item);
         }
 
         public void DropItemFromInventory(Item item)
         {
-            _inventory.TryDrop(this, item);
+            Inventory.TryDrop(this, item);
         }
 
         // item pick up
@@ -159,8 +155,8 @@ namespace DungeonCrawl.Actors.Characters
         {
 
             itemActor.HandlePickUp(this);
-            _inventory.Add(itemActor.Item);
-            _inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
+            Inventory.Add(itemActor.Item);
+            // Inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
             ActorManager.Singleton.DestroyActor(itemActor);
         }
         void ClearCurrentItemActor()
@@ -203,7 +199,7 @@ namespace DungeonCrawl.Actors.Characters
         
         public Dictionary<ItemType, List<Item>>.ValueCollection GetItemsInInventory()
         {
-            return _inventory.GetInventoryDict().Values;
+            return Inventory.Items.Values;
         }
     }
 }

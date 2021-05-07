@@ -13,7 +13,7 @@ namespace Assets.Source.Items
     [Serializable] // TODO Serialize _items and _equipment
     public class Inventory
     {
-        Dictionary<ItemType, List<Item>> _items;
+        public Dictionary<ItemType, List<Item>> Items { get; private set; }
         Equipment _equipment;
 
         public Inventory()
@@ -23,7 +23,7 @@ namespace Assets.Source.Items
 
         public void Add(Item item)
         {
-            _items[item.ItemType].Add(item);
+            Items[item.ItemType].Add(item);
         }
 
         /// <summary>
@@ -65,11 +65,11 @@ namespace Assets.Source.Items
         /// <param name="item"></param>
         public void Delete(Item item)
         {
-            _items[item.ItemType].Remove(item);
+            Items[item.ItemType].Remove(item);
         }
         public bool IsKeyPresent()
         {
-            foreach (Item item in _items[ItemType.Miscellaneous])
+            foreach (Item item in Items[ItemType.Miscellaneous])
             {
                 if (item.DefaultName.StartsWith("Key")) return true;
             }
@@ -90,21 +90,16 @@ namespace Assets.Source.Items
         /// </summary>
         void ConfigureInventory()
         {
-            _items = new Dictionary<ItemType, List<Item>>();
+            Items = new Dictionary<ItemType, List<Item>>();
             _equipment = new Equipment();
             var itemTypes = Utilities.GetEnumMembers<ItemType>();
 
             foreach (ItemType type in itemTypes)
             {
-                _items.Add(type, new List<Item>());
+                Items.Add(type, new List<Item>());
             }
 
             _equipment.Configure(itemTypes);
-        }
-
-        public Dictionary<ItemType, List<Item>> GetInventoryDict()
-        {
-            return _items;
         }
     }
 }

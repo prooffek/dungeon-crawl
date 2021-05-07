@@ -3,12 +3,12 @@ using static DungeonCrawl.Utilities;
 
 namespace Assets.Source.Items.ItemClasses
 {
-    enum FoodEnum
+    public enum FoodEnum
     {
-        apple,
-        fish,
-        meat,
-        mushroom
+        Apple,
+        Fish,
+        Meat,
+        Mushroom
     }
     public class Food : Item
     {
@@ -21,32 +21,32 @@ namespace Assets.Source.Items.ItemClasses
         public override int CurrentDurability { get; set; }
 
 
-        public Food(string type)
+        public Food(FoodEnum type)
         {
             switch (type)
             {
-                case "apple":
+                case FoodEnum.Apple:
                     DefaultSpriteId = 896;
                     DefaultName = "Apple";
                     NutritiousPoints = 5;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "fish":
+                case FoodEnum.Fish:
                     DefaultSpriteId = 848;
                     DefaultName = "Fish";
                     NutritiousPoints = GetRandomBoolean() ? 15 : -5;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "meat":
+                case FoodEnum.Meat:
                     DefaultSpriteId = 800;
                     DefaultName = "Meat";
                     NutritiousPoints = 10;
                     MaxDurability = 1;
                     CurrentDurability = 1;
                     break;
-                case "mushroom":
+                case FoodEnum.Mushroom:
                     DefaultSpriteId = 973;
                     DefaultName = "Mushroom";
                     MaxDurability = 1;

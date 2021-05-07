@@ -7,6 +7,7 @@ using UnityEngine;
 using Assets.Source.Core;
 using Assets.Source.Items;
 using Assets.Source.Actors;
+using Assets.Source.Items.ItemClasses;
 
 namespace DungeonCrawl.Core
 {

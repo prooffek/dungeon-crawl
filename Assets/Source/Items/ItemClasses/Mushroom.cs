@@ -5,17 +5,14 @@ namespace Assets.Source.Items.ItemClasses
 {
     public class Mushroom : Food
     {
-        private bool _randomBoolian = GetRandomBoolean();
-        public int NutritiousPoints { get; }
+        private readonly bool _randomBoolean = GetRandomBoolean();
         public int Inteligence { get; }
 
-        public Mushroom() : base(FoodEnum.mushroom.ToString())
+        public Mushroom() : base(FoodEnum.Mushroom)
         {
-            NutritiousPoints = _randomBoolian ? 7 : -5;
-            Inteligence = _randomBoolian ? 3 : -2;
+            NutritiousPoints = _randomBoolean ? 7 : -5;
+            Inteligence = _randomBoolean ? 3 : -2;
         }
-
-        private readonly bool _randomBoolean = GetRandomBoolean();
 
         public override void ActionOnUse(Player player)
         {
