@@ -1,6 +1,6 @@
 using DungeonCrawl.Actors.Characters;
 
-namespace Assets.Source.Items.ItemClasses
+namespace Assets.Source.Items.ItemClasses.Books
 {
     public class AncientMedicine : Book
     {

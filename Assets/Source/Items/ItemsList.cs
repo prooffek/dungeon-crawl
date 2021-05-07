@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Assets.Source.Items.ItemClasses;
+using Assets.Source.Items.ItemClasses.Books;
 
 namespace Assets.Source.Items
 {

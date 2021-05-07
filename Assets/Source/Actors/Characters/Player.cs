@@ -67,7 +67,7 @@ namespace DungeonCrawl.Actors.Characters
                 }
             }
             
-            InventoryDesplayManagement(_isInventoryOpen);
+            InventoryDisplayManagement(_isInventoryOpen);
 
             GoToNextMap();
 
