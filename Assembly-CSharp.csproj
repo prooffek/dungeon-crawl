@@ -58,9 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Source\Actors\Inventory\InventoryField.cs" />
     <Compile Include="Assets\Source\Actors\Static\Wall.cs" />
-    <Compile Include="Assets\Source\Actors\Static\River.cs" />
-    <Compile Include="Assets\Source\Items\ItemClasses\Books\KnightsTraining.cs" />
-    <Compile Include="Assets\Source\Items\ItemPlacer.cs" />
+    <Compile Include="Assets\Source\Actors\ItemActor.cs" />
     <Compile Include="Assets\Source\Actors\Static\Floor.cs" />
     <Compile Include="Assets\Source\Items\ItemClasses\Armour.cs" />
     <Compile Include="Assets\Source\Actors\Static\GateBorder.cs" />
@@ -73,10 +71,10 @@
     <Compile Include="Assets\Source\Actors\IActor.cs" />
     <Compile Include="Assets\Source\Items\Inventory.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Player.cs" />
-    <Compile Include="Assets\Source\Items\ItemClasses\Sword.cs" />
-    <Compile Include="Assets\Source\Core\Display.cs" />
-    <Compile Include="Assets\Source\Items\ItemClasses\Books\AncientMedicine.cs" />
-    <Compile Include="Assets\Source\Items\ItemClasses\Book.cs" />
+    <Compile Include="Assets\Source\Actors\Inventory\SelectedInventoryField.cs" />
+    <Compile Include="Assets\Source\Actors\Inventory\InventoryBackground.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Tree2.cs" />
+    <Compile Include="Assets\Source\Actors\Static\Tree1.cs" />
     <Compile Include="Assets\Source\Actors\Characters\Character.cs" />
     <Compile Include="Assets\Source\Items\ItemClasses\Food.cs" />
     <Compile Include="Assets\Source\Core\Display.cs" />
@@ -96,10 +94,11 @@
     <Compile Include="Assets\Source\Items\Equipment.cs" />
     <Compile Include="Assets\Source\Core\ActorManager.cs" />
     <Compile Include="Assets\Source\Items\ItemType.cs" />
-    <Compile Include="Assets\Source\Items\ItemClasses\KnightsTraining.cs" />
     <Compile Include="Assets\Source\Actors\Static\Gate.cs" />
     <Compile Include="Assets\Source\Items\ItemPlacer.cs" />
     <Compile Include="Assets\Resources\Maps.cs" />
+    <Compile Include="Assets\Source\Items\ItemClasses\Books\KnightsTraining.cs" />
+    <Compile Include="Assets\Source\Items\ItemClasses\Books\AncientMedicine.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Resources\map_0.txt" />
