@@ -1,7 +1,7 @@
 using DungeonCrawl.Actors.Characters;
 using static DungeonCrawl.Utilities;
 
-namespace Assets.Source.Items
+namespace Assets.Source.Items.ItemClasses
 {
     public class Food : Item
     {

@@ -1,18 +1,19 @@
 using DungeonCrawl.Actors.Characters;
 
-namespace Assets.Source.Items
+namespace Assets.Source.Items.ItemClasses
 {
-    public class Armour : Item
+    public class Armour : Item, IEquippable
     {
         public override ItemType ItemType => ItemType.Armour;
         public override bool IsEquippable => true;
+        public bool IsEquipped { get; private set; }
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public int DefencePoints { get; }
         public override int MaxDurability { get; }
         public override int CurrentDurability { get; set; }
 
-        
+
         public Armour(string type)
         {
             switch (type)
@@ -51,10 +52,8 @@ namespace Assets.Source.Items
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            if (isEquipted)
-                player.DefencePoints += DefencePoints;
-            else
-                player.DefencePoints -= DefencePoints;
+            player.DefencePoints += IsEquipped ? -DefencePoints : DefencePoints;
+            IsEquipped = !IsEquipped;
             
             DecreaseItemDurability();
         }

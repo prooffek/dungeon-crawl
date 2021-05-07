@@ -1,6 +1,6 @@
 using DungeonCrawl.Actors.Characters;
 
-namespace Assets.Source.Items
+namespace Assets.Source.Items.ItemClasses
 {
     public class Potion : Item
     {

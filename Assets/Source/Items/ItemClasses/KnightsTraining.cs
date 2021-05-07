@@ -1,7 +1,7 @@
 using Assets.Source.Items;
 using DungeonCrawl.Actors.Characters;
 
-namespace Assets.Source.Items.Books
+namespace Assets.Source.Items.ItemClasses
 {
     public class KnightsTraining : Book
     {

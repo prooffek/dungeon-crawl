@@ -160,7 +160,7 @@ namespace DungeonCrawl.Actors.Characters
 
             itemActor.HandlePickUp(this);
             _inventory.Add(itemActor.Item);
-            // _inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
+            _inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
             ActorManager.Singleton.DestroyActor(itemActor);
         }
         void ClearCurrentItemActor()

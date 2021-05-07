@@ -5,7 +5,6 @@ namespace Assets.Source.Items
 {
     public abstract class Item : IActor
     {
-        public bool isEquipted { get; set; } = false;
         public abstract ItemType ItemType { get; }
         public abstract bool IsEquippable { get; }
         public abstract int MaxDurability { get; }

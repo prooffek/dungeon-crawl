@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Source.Items
+namespace Assets.Source.Items.ItemClasses
 {
     public class Key : Item
     {

@@ -1,12 +1,12 @@
 using DungeonCrawl.Actors.Characters;
-using DungeonCrawl.Core;
 
-namespace Assets.Source.Items
+namespace Assets.Source.Items.ItemClasses
 {
-    public class Wand : Item
+    public class Wand : Item, IEquippable
     {
         public override ItemType ItemType => ItemType.Weapon;
         public override bool IsEquippable => true;
+        public bool IsEquipped { get; private set; }
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public int Inteligence { get; }
@@ -59,10 +59,8 @@ namespace Assets.Source.Items
         // Increase players Attack
         public override void ActionOnUse(Player player)
         {
-            if (isEquipted)
-                player.IntelligencePoints += Inteligence;
-            else
-                player.IntelligencePoints -= Inteligence;
+            player.IntelligencePoints += IsEquipped ? -Inteligence : Inteligence;
+            IsEquipped = !IsEquipped;
             
             DecreaseItemDurability();
         }
