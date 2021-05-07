@@ -72,7 +72,6 @@ namespace DungeonCrawl.Actors.Characters
             InventoryDisplayManagement(_isInventoryOpen);
 
             GoToNextMap();
-
         }
 
         public override void TryMove(Direction direction)
@@ -113,8 +112,6 @@ namespace DungeonCrawl.Actors.Characters
             {
                 this.StaminaPoints -= 1;
             }
-
-
         }
 
         public override bool OnCollision(Actor anotherActor)
@@ -126,8 +123,6 @@ namespace DungeonCrawl.Actors.Characters
         {
             Debug.Log("Oh no, I'm dead!");
         }
-
-
 
         public override bool HasKey() => Inventory.IsKeyPresent();
 
@@ -149,16 +144,15 @@ namespace DungeonCrawl.Actors.Characters
 
         public void DropItemFromInventory(Item item)
         {
-            Inventory.TryDrop(this, item);
+            bool canDrop = Inventory.TryDrop(this, item);
+            if (!canDrop) DisplayCantDropItemInfo();
         }
 
-        // item pick up
         void PickUpItem(ItemActor itemActor)
         {
 
             itemActor.HandlePickUp(this);
             Inventory.Add(itemActor.Item);
-            // Inventory.Use(this, itemActor.Item); // TODO can use this to debug equipment and inventory
             ActorManager.Singleton.DestroyActor(itemActor);
         }
         void ClearCurrentItemActor()
@@ -175,6 +169,14 @@ namespace DungeonCrawl.Actors.Characters
         {
             UserInterface.Singleton.SetText("", UserInterface.TextPosition.BottomRight);
         }
+
+        void DisplayCantDropItemInfo()
+        {
+            UserInterface.Singleton.SetText("asdasdasdas", UserInterface.TextPosition.MiddleCenter);
+            throw new KeyNotFoundException("use coroutine here");
+        }
+
+
 
         void GoToNextMap()
         {
@@ -194,7 +196,6 @@ namespace DungeonCrawl.Actors.Characters
                 ActorManager.Singleton.Player.Inventory = inventory;
                 //
                 // 
-
 
             }
         }

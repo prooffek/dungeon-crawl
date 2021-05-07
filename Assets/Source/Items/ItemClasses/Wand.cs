@@ -14,7 +14,7 @@ namespace Assets.Source.Items.ItemClasses
     {
         public override ItemType ItemType => ItemType.Weapon;
         public override bool IsEquippable => true;
-        public bool IsEquipped { get; private set; }
+        public bool IsEquipped { get; private set; } = false;
         public override int DefaultSpriteId { get; }
         public override string DefaultName { get; }
         public int Inteligence { get; }
