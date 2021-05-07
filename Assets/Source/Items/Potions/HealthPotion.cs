@@ -3,7 +3,7 @@ namespace Assets.Source.Items.Potions
 {
     public class HealthPotion : Potion
     {
-        public override int DefaultSpriteId => 655;
+        public override int DefaultSpriteId => 656;
         public override string DefaultName => "Health Potion";
         public override int HealthPoints => 30;
         public override int MaxDurability => 1;

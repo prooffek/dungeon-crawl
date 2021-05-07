@@ -96,6 +96,8 @@ namespace DungeonCrawl.Actors
         ///     Z position of this Actor (0 by default)
         /// </summary>
         public virtual int Z => 0;
+        
+        public bool _isInventoryOpen = false;
 
         /// <summary>
         ///     Id of the default sprite of this actor type

@@ -3,7 +3,9 @@ using Assets.Source.Core;
 using Assets.Source.Items;
 using DungeonCrawl.Core;
 using System.Collections.Generic;
+using Source.Actors.Inventory;
 using UnityEngine;
+using static Source.Actors.Inventory.DisplayInventory;
 
 namespace DungeonCrawl.Actors.Characters
 {
@@ -23,36 +25,50 @@ namespace DungeonCrawl.Actors.Characters
 
         protected override void OnUpdate(float deltaTime)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.I))
             {
-                // Move up
-                TryMove(Direction.Up);
+                _isInventoryOpen = !_isInventoryOpen;
             }
 
-            if (Input.GetKeyDown(KeyCode.S))
+            if (_isInventoryOpen)
             {
-                // Move down
-                TryMove(Direction.Down);
+                MoveThroughInventory();
             }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    // Move up
+                    TryMove(Direction.Up);
+                }
 
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                // Move left
-                TryMove(Direction.Left);
-            }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    // Move down
+                    TryMove(Direction.Down);
+                }
 
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                // Move right
-                TryMove(Direction.Right);
-            }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    // Move left
+                    TryMove(Direction.Left);
+                }
 
-            if (_currentItemActor != null && Input.GetKeyDown(KeyCode.E))
-            {
-                HidePickUpInfo();
-                PickUpItem(_currentItemActor);
-                ClearCurrentItemActor();
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    // Move right
+                    TryMove(Direction.Right);
+                }
+
+                if (_currentItemActor != null && Input.GetKeyDown(KeyCode.E))
+                {
+                    HidePickUpInfo();
+                    PickUpItem(_currentItemActor);
+                    ClearCurrentItemActor();
+                }
             }
+            
+            InventoryDesplayManagement(_isInventoryOpen);
 
             GoToNextMap();
 
@@ -180,6 +196,11 @@ namespace DungeonCrawl.Actors.Characters
         public override void IsNextMap()
         {
             this.WentToNextMap = true;
+        }
+        
+        public Dictionary<ItemType, List<Item>>.ValueCollection GetItemsInInventory()
+        {
+            return _inventory.GetInventoryDict().Values;
         }
     }
 }

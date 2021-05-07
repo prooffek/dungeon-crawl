@@ -102,5 +102,10 @@ namespace Assets.Source.Items
             }
             return false;
         }
+
+        public Dictionary<ItemType, List<Item>> GetInventoryDict()
+        {
+            return _items;
+        }
     }
 }
