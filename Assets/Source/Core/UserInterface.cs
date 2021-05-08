@@ -68,7 +68,7 @@ namespace Assets.Source.Core
             int exp = player.ExperiencePoints;
             int level = player.CharacterLevel;
 
-            int mapNumber = player.CurrentWorldNumber;
+            int mapNumber = GameManager.Singleton.WorldNumber;
             string mapName = Maps.MapNames[mapNumber];
 
             string textStats = _display.PrintStats(hp, max_hp, mp, att, def, sta, exp, level);

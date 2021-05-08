@@ -1,4 +1,5 @@
-﻿using Assets.Source.Core;
+﻿using Assets.Resources;
+using Assets.Source.Core;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -8,10 +9,32 @@ namespace DungeonCrawl.Core
     /// </summary>
     public class GameManager : MonoBehaviour
     {
+
+        public static GameManager Singleton { get; private set; }
+
+        private GameManager _gameManager;
+
+        public int WorldNumber = 1;
+
+        private void Awake()
+        {
+            if (Singleton != null)
+            {
+                Destroy(this);
+                return;
+            }
+
+            Singleton = this;
+
+            _gameManager = GetComponent<GameManager>();
+        }
+
         private void Start()
         {
-            MapLoader.LoadMap(1);          
+            MapLoader.LoadMap(WorldNumber);          
         }
+
+        
 
         //public void LoadNextMap(int id)
         //{

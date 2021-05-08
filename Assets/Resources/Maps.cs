@@ -15,6 +15,8 @@ namespace Assets.Resources
             {3, "Dungeon"},
             {4, "Dragon's Den"},
         };
+
+        public static int CurrentMap = 1;
             
             
 

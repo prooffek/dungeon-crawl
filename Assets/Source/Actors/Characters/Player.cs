@@ -19,7 +19,7 @@ namespace DungeonCrawl.Actors.Characters
 
         private bool WentToNextMap;
 
-        public int CurrentWorldNumber { get; private set; } = 1;
+        //public int CurrentWorldNumber { get; private set; } = 1;
 
         public override int DefaultSpriteId => 24;
         public override string DefaultName => "Player";
@@ -205,16 +205,21 @@ namespace DungeonCrawl.Actors.Characters
             if (this.WentToNextMap == true)
             {
                 this.WentToNextMap = false;
-                int nextWorldNumber = CurrentWorldNumber + 1;
+
+                ////in case of first world
+                //if (CurrentWorldNumber == 0) CurrentWorldNumber = 1;
+                
+                //int nextWorldNumber = CurrentWorldNumber + 1;
 
                 // PASSING PLAYER DATA THROUGH WORLDS
                 //
 
                 Inventory inventory = ActorManager.Singleton.Player.Inventory;
 
-                MapLoader.LoadMap(nextWorldNumber);
+                GameManager.Singleton.WorldNumber += 1;
+                MapLoader.LoadMap(GameManager.Singleton.WorldNumber);
 
-                ActorManager.Singleton.Player.CurrentWorldNumber += 1;
+                
                 ActorManager.Singleton.Player.Inventory = inventory;
                 //
                 // 
