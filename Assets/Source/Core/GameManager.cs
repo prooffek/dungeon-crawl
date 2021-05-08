@@ -1,5 +1,6 @@
 ﻿using Assets.Resources;
 using Assets.Source.Core;
+using Assets.Source.Items;
 using UnityEngine;
 
 namespace DungeonCrawl.Core
@@ -15,6 +16,10 @@ namespace DungeonCrawl.Core
         private GameManager _gameManager;
 
         public int WorldNumber = 1;
+
+        public Inventory PlayerInventory;
+
+        
 
         private void Awake()
         {

@@ -200,6 +200,8 @@ namespace DungeonCrawl.Actors.Characters
         {
             if (this.WentToNextMap == true)
             {
+                GameManager.Singleton.WorldNumber += 1;
+                GameManager.Singleton.PlayerInventory = ActorManager.Singleton.Player.Inventory;
                 this.WentToNextMap = false;
 
                 // PASSING PLAYER DATA THROUGH WORLDS NEEDS
@@ -207,14 +209,15 @@ namespace DungeonCrawl.Actors.Characters
                 // GAME MANAGER
                 //
 
-                Inventory inventory = ActorManager.Singleton.Player.Inventory;
                 HideKeyNeededInfo();
-
-                GameManager.Singleton.WorldNumber += 1;
+                
                 MapLoader.LoadMap(GameManager.Singleton.WorldNumber);
 
-                ActorManager.Singleton.Player.Inventory = inventory;
+                // PASSING PLAYERS INVENTORY TO NEW SPAWNED PLAYER
+                ActorManager.Singleton.Player.Inventory = GameManager.Singleton.PlayerInventory;
 
+                //PASSING PLAYERS STATS TO NEW SPAWNED PLAYER
+                // to be implemented
             }
         }
 
