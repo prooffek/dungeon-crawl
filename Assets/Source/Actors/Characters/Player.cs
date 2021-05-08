@@ -68,7 +68,7 @@ namespace DungeonCrawl.Actors.Characters
                     ClearCurrentItemActor();
                 }
             }
-            
+
             InventoryDisplayManagement(_isInventoryOpen);
 
             GoToNextMap();
@@ -107,10 +107,6 @@ namespace DungeonCrawl.Actors.Characters
 
                 }
             }
-
-            
-
-            
         }
 
         private void DecreasePlayerStamina()
@@ -206,23 +202,18 @@ namespace DungeonCrawl.Actors.Characters
             {
                 this.WentToNextMap = false;
 
-                ////in case of first world
-                //if (CurrentWorldNumber == 0) CurrentWorldNumber = 1;
-                
-                //int nextWorldNumber = CurrentWorldNumber + 1;
-
-                // PASSING PLAYER DATA THROUGH WORLDS
+                // PASSING PLAYER DATA THROUGH WORLDS NEEDS
+                // TO BE REFRACTOR TO BE KEPT IN
+                // GAME MANAGER
                 //
 
                 Inventory inventory = ActorManager.Singleton.Player.Inventory;
+                HideKeyNeededInfo();
 
                 GameManager.Singleton.WorldNumber += 1;
                 MapLoader.LoadMap(GameManager.Singleton.WorldNumber);
 
-                
                 ActorManager.Singleton.Player.Inventory = inventory;
-                //
-                // 
 
             }
         }

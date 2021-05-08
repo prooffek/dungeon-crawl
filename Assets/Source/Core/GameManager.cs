@@ -35,6 +35,7 @@ namespace DungeonCrawl.Core
         }
 
         
+        // TODO ASK ABOUT THESE USEFUL METHODS !
 
         //public void LoadNextMap(int id)
         //{
@@ -42,17 +43,8 @@ namespace DungeonCrawl.Core
         //}
 
         /// to ciekawe:
-
         //public void OnLevelWasLoaded(int level)
-        //{
-            
-        //}
-
-
-        //private void Update()
-        //{
-        //    GameObject player = GameObject.Find("Player");
-
+        //{          
         //}
 
     }
