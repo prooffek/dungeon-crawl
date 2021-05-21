@@ -9,27 +9,26 @@ namespace Assets.Source.Actors
     {
         public Item Item { get; set; }
 
-        public override int DefaultSpriteId => Item is null ? 944 : Item.DefaultSpriteId;
+        public override int DefaultSpriteId => Item?.DefaultSpriteId ?? 944; // null propagation / coalescing operator
 
-        public override string DefaultName => Item is null ? "Item" : Item.DefaultName;
+        public override string DefaultName => Item == null ? "Item" : Item.DefaultName;
 
-        public override bool Detectable => Item is null ? false : Item.Detectable;
+        public override bool Detectable => Item?.Detectable ?? false;
 
         public override bool OnCollision(Actor anotherActor)
         {
-            if (!(Item is null)) Item.OnCollision(anotherActor); // experimental
-
-            anotherActor.HandleItem(this);
+            Item?.OnCollision(anotherActor);
+            anotherActor.HandleItemActor(this);
             return true;
         }
 
         public virtual void HandlePickUp(Actor anotherActor)
         {
-            if (!(Item is null)) Item.HandlePickUp(anotherActor);
+            Item?.HandlePickUp(anotherActor);
         }
 
 
-        public override int Z => Item is null ? -1 : Item.Z;
+        public override int Z => Item?.Z ?? -1;
 
         public override void ManageItemsToSpawn(Actor component, Item item, (int x, int y) position, GameObject go)
         {

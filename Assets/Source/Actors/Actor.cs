@@ -29,12 +29,11 @@ namespace DungeonCrawl.Actors
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
 
-            SetSprite(DefaultSpriteId);
+            SetSprite(DefaultSpriteId); // TODO moving this to Start() may eliminate the need for setting the sprite after Spawn() is used
         }
 
-        public virtual void HandleItem(object itemActor)
+        public virtual void HandleItemActor(ItemActor itemActor)
         {
-            throw new NotImplementedException();
         }
 
         private void Update()
@@ -111,9 +110,6 @@ namespace DungeonCrawl.Actors
         /// </summary>
         public abstract string DefaultName { get; }
 
-        public virtual void HandleItem(ItemActor itemActor)
-        {
-        }
 
         public virtual void ManageItemsToSpawn(Actor component, Item item, (int x, int y) position, GameObject go)
         {

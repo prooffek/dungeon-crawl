@@ -134,9 +134,9 @@ namespace DungeonCrawl.Actors.Characters
 
         public override bool HasKey() => Inventory.IsKeyPresent();
 
-        public override void HandleItem(ItemActor itemActor)
+        public override void HandleItemActor(ItemActor itemActor)
         {
-            DisplayPickUpInfo(itemActor.Item.DefaultName);
+            DisplayPickUpInfo(itemActor.DefaultName);
             _currentItemActor = itemActor;
         }
 
